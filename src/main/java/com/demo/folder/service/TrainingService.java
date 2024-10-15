@@ -4,6 +4,7 @@ import com.demo.folder.entity.base.Trainee;
 import com.demo.folder.entity.base.Trainer;
 import com.demo.folder.entity.base.Training;
 import com.demo.folder.entity.dto.request.TrainingRequestDTO;
+import com.demo.folder.mapper.TrainingMapper;
 import com.demo.folder.repository.TrainingRepository;
 import jakarta.persistence.EntityNotFoundException;
 
@@ -75,12 +76,9 @@ public class TrainingService {
         }
 
 
-        Training training = new Training();
+        Training training = TrainingMapper.INSTANCE.toEntity(trainingRequestDTO);
         training.setTrainee(trainee);
         training.setTrainer(trainer);
-        training.setTrainingName(trainingRequestDTO.getTrainingName());
-        training.setTrainingDate(trainingRequestDTO.getTrainingDate());
-        training.setTrainingDuration(trainingRequestDTO.getDuration());
 
         trainee.getTrainings().add(training);
         LOGGER.info("Trainee's trainings list: {}", trainee.getTrainings());
@@ -95,15 +93,7 @@ public class TrainingService {
     public List<TrainingRequestDTO> retrieveAllTrainings() {
         List<Training> trainings = getAllTrainings();
         return trainings.stream()
-                .map(training -> {
-                    TrainingRequestDTO trainingRequestDTO = new TrainingRequestDTO();
-                    trainingRequestDTO.setTraineeUserName(training.getTrainee().getUser().getUsername());
-                    trainingRequestDTO.setTrainerUserName(training.getTrainer().getUser().getUsername());
-                    trainingRequestDTO.setTrainingName(training.getTrainingName());
-                    trainingRequestDTO.setTrainingDate(training.getTrainingDate());
-                    trainingRequestDTO.setDuration(training.getTrainingDuration());
-                    return trainingRequestDTO;
-                })
+                .map(TrainingMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }
 }

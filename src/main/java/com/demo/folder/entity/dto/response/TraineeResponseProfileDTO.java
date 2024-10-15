@@ -1,13 +1,13 @@
 package com.demo.folder.entity.dto.response;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class TraineeResponseProfileDTO {
 
     private String firstName;
     private String lastName;
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     private String address;
     private boolean isActive;
     private List<TrainerResponseProfileDTO> trainerResponseProfileDTOList;
@@ -30,11 +30,11 @@ public class TraineeResponseProfileDTO {
         this.lastName = lastName;
     }
 
-    public Date getDate_of_birth() {
+    public LocalDate getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
+    public void setDate_of_birth(LocalDate date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 

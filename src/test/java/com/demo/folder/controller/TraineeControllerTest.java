@@ -19,51 +19,60 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+
 @SpringBootTest
 @AutoConfigureMockMvc
 class TraineeControllerTest {
 
-    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(
-            TraineeControllerTest.class);
 
     @Autowired
     private MockMvc mockMvc;
 
     private String username;
-    private String password;
+    private String token;
     private MockHttpSession session;
+    private ObjectMapper objectMapper;
 
     @BeforeEach
     public void setup() throws Exception {
-        String jsonBody = """
+        this.session = new MockHttpSession();
+        this.objectMapper = new ObjectMapper();
+
+        MvcResult adminResult = mockMvc.perform(post("/api/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("username", "admin")
+                        .param("password", "admin"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Welcome admin"))
+                .andReturn();
+
+        session = (MockHttpSession) adminResult.getRequest().getSession(false);
+
+        String registrationJson = """
         {
             "firstName": "John",
             "lastName": "Doe",
             "dateOfBirth": "1990-01-01",
-            "address": "Tbilisi Tamarashvili Street"
+            "address": "123 Main Street"
         }
         """;
 
         MvcResult registrationResult = mockMvc.perform(post("/api/trainees")
+                        .session(session)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonBody))
+                        .content(registrationJson))
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
 
         String registrationResponse = registrationResult.getResponse().getContentAsString();
-        ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(registrationResponse);
-        username = jsonNode.get("username").asText();
-        password = jsonNode.get("password").asText();
-
-        LOGGER.info("Registered trainee with username: {}", username);
-        LOGGER.info("Registered trainee with password: {}", password);
+        this.username = jsonNode.get("username").asText();
+        this.token = jsonNode.get("token").asText();
 
         MvcResult loginResult = mockMvc.perform(post("/api/login")
-                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .param("username", username)
-                        .param("password", password))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("username", this.username)
+                        .param("password", this.token))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Login successful"))
                 .andReturn();
@@ -77,22 +86,22 @@ class TraineeControllerTest {
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$[0].username", is(username)));
+                .andExpect(jsonPath("$[0].username", is(this.username)));
     }
 
     @Test
     public void testActivationOfTrainee() throws Exception {
-        mockMvc.perform(patch("/api/trainees/{username}/{action}", username, "DEACTIVATE")
+        mockMvc.perform(patch("/api/trainees/{username}/{action}", this.username, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Trainee de-activated")));
 
-        mockMvc.perform(patch("/api/trainees/{username}/{action}", username, "ACTIVATE")
+        mockMvc.perform(patch("/api/trainees/{username}/{action}", this.username, "ACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Trainee activated")));
 
-        mockMvc.perform(get("/api/trainees/{username}/profile", username)
+        mockMvc.perform(get("/api/trainees/{username}/profile", this.username)
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -101,34 +110,66 @@ class TraineeControllerTest {
 
     @Test
     public void testDeActivationOfTrainee() throws Exception {
-        mockMvc.perform(patch("/api/trainees/{username}/{action}", username, "DEACTIVATE")
+        mockMvc.perform(patch("/api/trainees/{username}/{action}", this.username, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Trainee de-activated")));
 
-        mockMvc.perform(get("/api/trainees/{username}/profile", username)
+        mockMvc.perform(get("/api/trainees/{username}/profile", this.username)
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.active", is(false)));
     }
 
-
     @Test
     public void testDeletionOfTrainee() throws Exception {
-        mockMvc.perform(delete("/api/trainees/{username}", username)
+        mockMvc.perform(delete("/api/trainees/{username}", this.username)
                         .session(session))
                 .andExpect(status().isNoContent());
     }
 
     @Test
+    public void testUpdateTrainee() throws Exception {
+        MvcResult loginResult = mockMvc.perform(post("/api/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("username", "admin")
+                        .param("password", "admin"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        MockHttpSession session = (MockHttpSession) loginResult.getRequest().getSession(false);
+
+        String updateJson = """
+                {
+                    "firstName": "Jane",
+                    "lastName": "Doe",
+                    "isActive": true
+                }
+                """;
+
+        mockMvc.perform(put("/api/trainees/{username}", this.username)
+                        .session(session)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(updateJson))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/api/trainees/{username}/profile", this.username)
+                        .session(session))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.firstName", equalTo("Jane")))
+                .andExpect(jsonPath("$.lastName", equalTo("Doe")));
+    }
+
+    @Test
     public void testRetrieveTraineeByUserName() throws Exception {
-        mockMvc.perform(get("/api/trainees/{username}/profile", username)
+        mockMvc.perform(get("/api/trainees/{username}/profile", this.username)
                         .session(session))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.firstName", equalTo("John")))
                 .andExpect(jsonPath("$.lastName", equalTo("Doe")))
-                .andExpect(jsonPath("$.address", equalTo("Tbilisi Tamarashvili Street")));
+                .andExpect(jsonPath("$.address", equalTo("123 Main Street")));
     }
 }

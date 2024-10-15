@@ -1,8 +1,7 @@
 package com.demo.folder.entity.dto.request;
 
 import com.demo.folder.entity.dto.response.TraineeTrainingResponseDTO;
-import jakarta.validation.constraints.NotBlank;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class AllTraineeRequestDTO {
@@ -12,7 +11,7 @@ public class AllTraineeRequestDTO {
     private String lastName;
     private String username;
     private String password;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String address;
     private Boolean isActive;
     private List<String> trainers;
@@ -60,11 +59,11 @@ public class AllTraineeRequestDTO {
         this.firstName = firstName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

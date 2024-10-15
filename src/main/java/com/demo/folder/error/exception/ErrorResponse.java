@@ -1,19 +1,21 @@
 package com.demo.folder.error.exception;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class ErrorResponse {
 
     private int status;
     private String message;
     private String details;
-    private Date timestamp;
+    private LocalDateTime timestamp;
+
 
     public ErrorResponse(int status, String message, String details) {
         this.status = status;
         this.message = message;
         this.details = details;
-        this.timestamp = new Date();
+        this.timestamp = LocalDateTime.now();
+
     }
 
     public int getStatus() {
@@ -40,11 +42,11 @@ public class ErrorResponse {
         this.details = details;
     }
 
-    public Date getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 }

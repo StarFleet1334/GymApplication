@@ -3,6 +3,7 @@ package com.demo.folder.service;
 
 import com.demo.folder.entity.base.TrainingType;
 import com.demo.folder.entity.dto.request.TrainingTypeRequestDTO;
+import com.demo.folder.mapper.TrainingTypeMapper;
 import com.demo.folder.repository.TrainingTypeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
@@ -30,9 +31,7 @@ public class TrainingTypeService {
 
     @Transactional
     public void createTrainingType(TrainingTypeRequestDTO trainingTypeRequestDTO) {
-        TrainingType trainingType = new TrainingType();
-        trainingType.setId(trainingTypeRequestDTO.getId());
-        trainingType.setTrainingTypeName(trainingTypeRequestDTO.getTrainingTypeName());
+        TrainingType trainingType = TrainingTypeMapper.INSTANCE.toEntity(trainingTypeRequestDTO);
         createTrainingType(trainingType);
     }
 
@@ -50,23 +49,18 @@ public class TrainingTypeService {
     @Transactional(readOnly = true)
     public TrainingTypeRequestDTO getTrainingTypeById(Long id) {
         return trainingTypeRepository.findById(id)
-                .map(trainingType -> modelMapper.map(trainingType, TrainingTypeRequestDTO.class))
+                .map(TrainingTypeMapper.INSTANCE::toDTO)
                 .orElseThrow(() -> new EntityNotFoundException("Training Type with ID " + id + " not found"));
     }
 
     @Transactional(readOnly = true)
     public List<TrainingTypeRequestDTO> retrieveAllTrainingTypes() {
-        List<TrainingType> list = getAllTrainingTypes();
-        if (list.isEmpty()) {
+        List<TrainingType> trainingTypes = getAllTrainingTypes();
+        if (trainingTypes.isEmpty()) {
             throw new com.demo.folder.error.exception.EntityNotFoundException("No training types found.");
         }
-        return list.stream()
-                .map(trainingType -> {
-                    TrainingTypeRequestDTO trainingTypeRequestDTO = new TrainingTypeRequestDTO();
-                    trainingTypeRequestDTO.setId(trainingType.getId());
-                    trainingTypeRequestDTO.setTrainingTypeName(trainingType.getTrainingTypeName());
-                    return trainingTypeRequestDTO;
-                })
+        return trainingTypes.stream()
+                .map(TrainingTypeMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }
 

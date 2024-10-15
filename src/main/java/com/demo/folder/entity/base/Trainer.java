@@ -3,14 +3,11 @@ package com.demo.folder.entity.base;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 @Entity
 @Table(name = "trainers")
 public class Trainer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Trainer.class);
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

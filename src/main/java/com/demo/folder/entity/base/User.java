@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 @Entity
 @Table(name = "`User`")
 public class User {
-    private static final Logger LOGGER = LoggerFactory.getLogger(User.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

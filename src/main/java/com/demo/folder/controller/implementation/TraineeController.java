@@ -17,8 +17,8 @@ import com.demo.folder.utils.TraineeAction;
 import jakarta.validation.Valid;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -191,8 +191,8 @@ public class TraineeController implements TraineeControllerInterface {
     @Override
     public ResponseEntity<Object> getTrainings(
             @PathVariable String username,
-            @RequestParam(name = "periodFrom", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date periodFrom,
-            @RequestParam(name = "periodTo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date periodTo,
+            @RequestParam(name = "periodFrom", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate periodFrom,
+            @RequestParam(name = "periodTo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate periodTo,
             @RequestParam(name = "trainingName", required = false) String trainingName,
             @RequestParam(name = "trainingType", required = false) String trainingType
     ) {

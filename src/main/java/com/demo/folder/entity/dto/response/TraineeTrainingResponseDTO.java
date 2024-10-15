@@ -1,11 +1,11 @@
 package com.demo.folder.entity.dto.response;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class TraineeTrainingResponseDTO {
 
     private String trainingName;
-    private Date trainingDate;
+    private LocalDate trainingDate;
     private String trainingType;
     private Number trainingDuration;
     private String trainerName;
@@ -18,11 +18,11 @@ public class TraineeTrainingResponseDTO {
         this.trainingName = trainingName;
     }
 
-    public Date getTrainingDate() {
+    public LocalDate getTrainingDate() {
         return trainingDate;
     }
 
-    public void setTrainingDate(Date trainingDate) {
+    public void setTrainingDate(LocalDate trainingDate) {
         this.trainingDate = trainingDate;
     }
 

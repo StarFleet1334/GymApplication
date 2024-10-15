@@ -2,21 +2,18 @@ package com.demo.folder.entity.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.util.Date;
-import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
+import java.util.List;
 @Entity
 @Table(name = "trainees")
 public class Trainee {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Trainee.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "Date_Of_Birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @Column(name = "Address")
     private String address;
 
@@ -49,11 +46,11 @@ public class Trainee {
         this.id = id;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

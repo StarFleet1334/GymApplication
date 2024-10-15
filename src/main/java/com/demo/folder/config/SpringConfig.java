@@ -119,7 +119,6 @@ public class SpringConfig implements WebMvcConfigurer {
     }
 
 
-
     @Primary
     @Bean(name = "transactionManager")
     public PlatformTransactionManager jpaTransactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactory) {

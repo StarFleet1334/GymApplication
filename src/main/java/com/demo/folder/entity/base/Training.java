@@ -3,14 +3,12 @@ package com.demo.folder.entity.base;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import java.util.Date;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "trainings")
 public class Training {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Training.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +34,7 @@ public class Training {
     @Column(name = "Training_Date", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
 
-    private Date trainingDate;
+    private LocalDate trainingDate;
 
     @Column(name = "Training_Duration", nullable = false)
     private Number trainingDuration;
@@ -84,11 +82,11 @@ public class Training {
         this.trainingType = trainingType;
     }
 
-    public Date getTrainingDate() {
+    public LocalDate getTrainingDate() {
         return trainingDate;
     }
 
-    public void setTrainingDate(Date trainingDate) {
+    public void setTrainingDate(LocalDate trainingDate) {
         this.trainingDate = trainingDate;
     }
 

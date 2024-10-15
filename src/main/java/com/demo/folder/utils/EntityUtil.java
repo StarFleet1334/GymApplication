@@ -11,6 +11,7 @@ import com.demo.folder.entity.dto.response.TraineeProfileResponseDTO;
 import com.demo.folder.entity.dto.response.TraineeTrainingResponseDTO;
 import com.demo.folder.entity.dto.response.TrainerProfileResponseDTO;
 import com.demo.folder.error.exception.EntityNotFoundException;
+import com.demo.folder.mapper.TrainerMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -108,9 +109,7 @@ public class EntityUtil {
     }
 
     public static User createUser(TrainerRequestDTO requestDTO, String plainTextPassword, PasswordEncoder passwordEncoder) {
-        User user = new User();
-        user.setFirstName(requestDTO.getFirstName());
-        user.setLastName(requestDTO.getLastName());
+        User user = TrainerMapper.INSTANCE.mapToUser(requestDTO);
         user.setUsername(Generator.generateUserName(requestDTO.getFirstName(), requestDTO.getLastName()));
         user.setPassword(passwordEncoder.encode(plainTextPassword));
         user.setActive(true);

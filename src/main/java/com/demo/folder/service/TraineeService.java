@@ -13,6 +13,7 @@ import com.demo.folder.entity.dto.request.UpdateTraineeProfileRequestDTO;
 import com.demo.folder.entity.dto.request.UpdateTraineeTrainersRequestDTO;
 import com.demo.folder.entity.dto.response.*;
 import com.demo.folder.entity.dto.response.UpdateTraineeTrainersResponseDTO.TrainerInfoDTO;
+import com.demo.folder.mapper.TraineeMapper;
 import com.demo.folder.repository.TraineeRepository;
 import com.demo.folder.repository.TrainerRepository;
 import com.demo.folder.repository.TrainingRepository;
@@ -21,9 +22,9 @@ import com.demo.folder.utils.FileUtil;
 import com.demo.folder.utils.Generator;
 import com.demo.folder.utils.JwtTokenUtil;
 import jakarta.persistence.EntityNotFoundException;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.stream.Collectors;
 
 import jakarta.servlet.http.HttpSession;
@@ -99,11 +100,9 @@ public class TraineeService {
 
         LOGGER.info("Creating new Trainee with first name: {}", traineeRequestDTO.getFirstName());
         String plainTextPassword = generatePassword();
-        Trainee trainee = new Trainee();
+        Trainee trainee = TraineeMapper.INSTANCE.toEntity(traineeRequestDTO);
         User user = createUser(traineeRequestDTO, plainTextPassword);
         trainee.setUser(user);
-        trainee.setDateOfBirth(traineeRequestDTO.getDateOfBirth());
-        trainee.setAddress(traineeRequestDTO.getAddress());
         LOGGER.info("Creating new Trainee with username: {}", trainee.getUser().getUsername());
         traineeRepository.save(trainee);
         LOGGER.debug("Trainee created: {}", trainee);
@@ -111,7 +110,7 @@ public class TraineeService {
         String token = jwtTokenUtil.generateToken(user.getUsername(),"TRAINEE");
         session.setAttribute("TOKEN", token);
         session.setAttribute("USERNAME", user.getUsername());
-        return buildTraineeResponse(trainee, token);
+        return TraineeMapper.INSTANCE.toResponse(trainee, token);
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -330,19 +329,19 @@ public class TraineeService {
 
 
     @Transactional(readOnly = true)
-    public List<TraineeTrainingResponseDTO> getFilteredTrainings(String username, Date periodFrom,
-                                                                 Date periodTo, String trainingName, String trainingType) throws EntityNotFoundException {
+    public List<TraineeTrainingResponseDTO> getFilteredTrainings(String username, LocalDate periodFrom,
+                                                                 LocalDate periodTo, String trainingName, String trainingType) throws EntityNotFoundException {
         Trainee trainee = findTraineeByUsername(username);
         if (trainee == null) {
             throw new EntityNotFoundException("Trainee with username " + username + " not found.");
         }
 
         return trainee.getTrainings().stream()
-                .filter(training -> periodFrom == null || !training.getTrainingDate().before(periodFrom))
+                .filter(training -> periodFrom == null || !training.getTrainingDate().isBefore(periodFrom))
                 .filter(training -> {
-                    Date calculatedPeriodTo = addDurationToTrainingDate(training.getTrainingDate(),
+                    LocalDate calculatedPeriodTo = addDurationToTrainingDate(training.getTrainingDate(),
                             training.getTrainingDuration());
-                    return periodTo == null || !calculatedPeriodTo.after(periodTo);
+                    return periodTo == null || !calculatedPeriodTo.isAfter(periodTo);
                 })
                 .filter(training -> trainingName == null || training.getTrainingName()
                         .equalsIgnoreCase(trainingName))
@@ -371,27 +370,22 @@ public class TraineeService {
         if (state) {
             LOGGER.info("Activating Trainee with ID: {}", trainee.getId());
             traineeRepository.updateTraineeStatus(trainee.getId(), true);
+        } else {
+            LOGGER.info("Deactivating Trainee with ID: {}", trainee.getId());
+            traineeRepository.updateTraineeStatus(trainee.getId(), false);
         }
-        LOGGER.info("Deactivating Trainee with ID: {}", trainee.getId());
-        traineeRepository.updateTraineeStatus(trainee.getId(), false);
-
     }
 
     private User createUser(CreateTraineeRequestDTO requestDTO, String plainTextPassword) {
-        User user = new User();
-        user.setFirstName(requestDTO.getFirstName());
-        user.setLastName(requestDTO.getLastName());
+        User user = TraineeMapper.INSTANCE.mapToUser(requestDTO);
         user.setUsername(Generator.generateUserName(requestDTO.getFirstName(), requestDTO.getLastName()));
         user.setPassword(passwordEncoder.encode(plainTextPassword));
         user.setActive(true);
         return user;
     }
 
-    private Date addDurationToTrainingDate(Date trainingDate, Number trainingDurationInMinutes) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(trainingDate);
-        calendar.add(Calendar.MINUTE, trainingDurationInMinutes.intValue());
-        return calendar.getTime();
+    private LocalDate addDurationToTrainingDate(LocalDate trainingDate, Number trainingDurationInMinutes) {
+        return trainingDate.plusDays(trainingDurationInMinutes.intValue() / (24 * 60));
     }
 
     private Trainer findTrainerByUsername(String trainerUsername) {
@@ -401,18 +395,6 @@ public class TraineeService {
         }
         return trainer;
     }
-
-    private TraineeResponse buildTraineeResponse(Trainee trainee, String token) {
-        TraineeResponse response = new TraineeResponse();
-        response.setUsername(trainee.getUser().getUsername());
-        response.setPassword(trainee.getUser().getPassword());
-        response.setToken(token);
-        return response;
-    }
-
-
-
-
 
 
 }

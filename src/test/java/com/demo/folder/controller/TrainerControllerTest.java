@@ -31,14 +31,28 @@ class TrainerControllerTest {
     private String trainerUsername;
     private String trainerPassword;
     private MockHttpSession session;
+    private ObjectMapper objectMapper;
 
     @BeforeEach
     public void setup() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
+        this.session = new MockHttpSession();
+        this.objectMapper = new ObjectMapper();
+
+        MvcResult adminResult = mockMvc.perform(post("/api/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("username", "admin")
+                        .param("password", "admin"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Welcome admin"))
+                .andReturn();
+
+        session = (MockHttpSession) adminResult.getRequest().getSession(false);
+
 
         String trainingTypeJson = "{ \"trainingTypeName\": \"Yoga\" }";
 
         mockMvc.perform(post("/api/training-type")
+                        .session(session)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(trainingTypeJson))
                 .andExpect(status().isCreated())
@@ -51,6 +65,7 @@ class TrainerControllerTest {
                 + "}";
 
         MvcResult trainerRegistrationResult = mockMvc.perform(post("/api/trainers")
+                        .session(session)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(trainerJson))
                 .andExpect(status().isCreated())
@@ -59,9 +74,9 @@ class TrainerControllerTest {
 
         String trainerRegistrationResponse = trainerRegistrationResult.getResponse()
                 .getContentAsString();
-        JsonNode trainerJsonNode = objectMapper.readTree(trainerRegistrationResponse);
-        trainerUsername = trainerJsonNode.get("username").asText();
-        trainerPassword = trainerJsonNode.get("password").asText();
+        JsonNode jsonNode = objectMapper.readTree(trainerRegistrationResponse);
+        trainerUsername = jsonNode.get("username").asText();
+        trainerPassword = jsonNode.get("token").asText();
 
         LOGGER.info("Registered trainer with username: {}", trainerUsername);
         LOGGER.info("Registered trainer with password: {}", trainerPassword);
@@ -82,13 +97,12 @@ class TrainerControllerTest {
         String trainingTypeJson = "{ \"trainingTypeName\": \"Pilates\" }";
 
         MvcResult trainingTypeResult = mockMvc.perform(post("/api/training-type")
+                        .session(session)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(trainingTypeJson))
                 .andExpect(status().isCreated())
                 .andReturn();
 
-        String trainingTypeResponse = trainingTypeResult.getResponse().getContentAsString();
-        ObjectMapper objectMapper = new ObjectMapper();
 
         String trainerJson = "{"
                 + "\"firstName\": \"AnotherTrainer\","
@@ -97,6 +111,7 @@ class TrainerControllerTest {
                 + "}";
 
         mockMvc.perform(post("/api/trainers")
+                        .session(session)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(trainerJson))
                 .andExpect(status().isCreated())

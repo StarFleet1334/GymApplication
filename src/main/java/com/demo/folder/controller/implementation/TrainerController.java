@@ -4,7 +4,6 @@ package com.demo.folder.controller.implementation;
 import com.demo.folder.controller.skeleton.TrainerControllerInterface;
 import com.demo.folder.entity.dto.request.TrainerRequestDTO;
 import com.demo.folder.entity.dto.request.UpdateTrainerProfileRequestDTO;
-import com.demo.folder.entity.dto.response.ErrorResponse;
 import com.demo.folder.entity.dto.response.TrainerProfileResponseDTO;
 import com.demo.folder.entity.dto.response.TrainerResponseDTO;
 import com.demo.folder.error.exception.EntityNotFoundException;
@@ -14,21 +13,18 @@ import com.demo.folder.service.LoginAttemptService;
 import com.demo.folder.service.TrainerService;
 import com.demo.folder.utils.EntityUtil;
 import com.demo.folder.utils.StatusAction;
-import com.demo.folder.utils.FileUtil;
 import jakarta.validation.Valid;
+
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -101,11 +97,11 @@ public class TrainerController implements TrainerControllerInterface {
         try {
             return switch (statusAction) {
                 case ACTIVATE -> {
-                    trainerService.modifyTrainerState(username,true);
+                    trainerService.modifyTrainerState(username, true);
                     yield ResponseEntity.ok("Trainer activated");
                 }
                 case DEACTIVATE -> {
-                    trainerService.modifyTrainerState(username,false);
+                    trainerService.modifyTrainerState(username, false);
                     yield ResponseEntity.ok("Trainer de-activated");
                 }
             };
@@ -135,8 +131,8 @@ public class TrainerController implements TrainerControllerInterface {
     @Override
     public ResponseEntity<Object> getTrainings(
             @PathVariable String username,
-            @RequestParam(name = "periodFrom", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date periodFrom,
-            @RequestParam(name = "periodTo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date periodTo,
+            @RequestParam(name = "periodFrom", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate periodFrom,
+            @RequestParam(name = "periodTo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate periodTo,
             @RequestParam(name = "traineeName", required = false) String traineeName
     ) {
 

@@ -1,14 +1,15 @@
 package com.demo.folder.entity.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class CreateTraineeRequestDTO {
     @NotBlank(message = "First Name is required")
     private String firstName;
     @NotBlank(message = "Last Name is required")
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String address;
 
 
@@ -30,11 +31,11 @@ public class CreateTraineeRequestDTO {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

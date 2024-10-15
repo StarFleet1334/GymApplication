@@ -9,6 +9,7 @@ import com.demo.folder.entity.dto.request.UpdateTrainerProfileRequestDTO;
 import com.demo.folder.entity.dto.response.TrainerProfileResponseDTO;
 import com.demo.folder.entity.dto.response.TrainerResponseDTO;
 import com.demo.folder.entity.dto.response.TrainerTrainingResponseDTO;
+import com.demo.folder.mapper.TrainerMapper;
 import com.demo.folder.repository.TrainerRepository;
 import com.demo.folder.repository.TrainingTypeRepository;
 import com.demo.folder.utils.EntityUtil;
@@ -16,8 +17,8 @@ import com.demo.folder.utils.FileUtil;
 import com.demo.folder.utils.Generator;
 import com.demo.folder.utils.JwtTokenUtil;
 import jakarta.persistence.EntityNotFoundException;
-import java.util.Calendar;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.stream.Collectors;
 
 import jakarta.servlet.http.HttpSession;
@@ -71,7 +72,7 @@ public class TrainerService {
             return null;
         }
         User user = createUser(trainerRequestDTO, plainTextPassword,passwordEncoder);
-        Trainer trainer = new Trainer();
+        Trainer trainer = TrainerMapper.INSTANCE.toEntity(trainerRequestDTO);
         trainer.setSpecialization(trainingType);
         trainer.setUser(user);
         trainerRepository.save(trainer);
@@ -79,15 +80,7 @@ public class TrainerService {
         String token = jwtTokenUtil.generateToken(user.getUsername(),"TRAINER");
         session.setAttribute("TOKEN", token);
         session.setAttribute("USERNAME", user.getUsername());
-        return buildTrainerResponse(trainer, token);
-    }
-
-    private TrainerResponseDTO buildTrainerResponse(Trainer trainer, String token) {
-        TrainerResponseDTO responseDTO = new TrainerResponseDTO();
-        responseDTO.setUsername(trainer.getUser().getUsername());
-        responseDTO.setPassword(trainer.getUser().getPassword());
-        responseDTO.setToken(token);
-        return responseDTO;
+        return TrainerMapper.INSTANCE.toResponse(trainer,token);
     }
 
 
@@ -171,7 +164,7 @@ public class TrainerService {
 
     @Transactional(readOnly = true)
     public List<TrainerTrainingResponseDTO> getFilteredTrainingsForTrainer(String username,
-                                                                           Date periodFrom, Date periodTo, String traineeName) throws EntityNotFoundException {
+                                                                           LocalDate periodFrom, LocalDate periodTo, String traineeName) throws EntityNotFoundException {
         Trainer trainer = findTrainerByUsername(username);
         if (trainer == null) {
             throw new com.demo.folder.error.exception.EntityNotFoundException(
@@ -181,11 +174,11 @@ public class TrainerService {
         List<Training> trainings = trainer.getTrainings();
 
         List<Training> filteredTrainings = trainings.stream()
-                .filter(training -> periodFrom == null || !training.getTrainingDate().before(periodFrom))
+                .filter(training -> periodFrom == null || !training.getTrainingDate().isBefore(periodFrom))
                 .filter(training -> {
-                    Date calculatedPeriodTo = addDurationToTrainingDate(training.getTrainingDate(),
+                    LocalDate calculatedPeriodTo = addDurationToTrainingDate(training.getTrainingDate(),
                             training.getTrainingDuration());
-                    return periodTo == null || !calculatedPeriodTo.after(periodTo);
+                    return periodTo == null || !calculatedPeriodTo.isAfter(periodTo);
                 })
                 .filter(training -> traineeName == null || training.getTrainee().getUser().getUsername()
                         .equalsIgnoreCase(traineeName))
@@ -221,17 +214,15 @@ public class TrainerService {
         if (state) {
             LOGGER.info("Activating Trainer with ID: {}", trainer.getId());
             trainerRepository.updateTrainerStatus(trainer.getId(), true);
+        } else {
+            LOGGER.info("Deactivating Trainer with ID: {}", trainer.getId());
+            trainerRepository.updateTrainerStatus(trainer.getId(), false);
         }
-        LOGGER.info("Deactivating Trainer with ID: {}", trainer.getId());
-        trainerRepository.updateTrainerStatus(trainer.getId(), false);
     }
 
 
-    private Date addDurationToTrainingDate(Date trainingDate, Number trainingDurationInMinutes) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(trainingDate);
-        calendar.add(Calendar.MINUTE, trainingDurationInMinutes.intValue());
-        return calendar.getTime();
+    private LocalDate addDurationToTrainingDate(LocalDate trainingDate, Number trainingDurationInMinutes) {
+        return trainingDate.plusDays(trainingDurationInMinutes.intValue() / (24 * 60));
     }
 
     private TrainingType getTrainingType(Long trainingTypeId) {

@@ -12,8 +12,6 @@ import com.demo.folder.utils.JwtTokenUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-
-import java.util.Date;
 import java.util.Objects;
 
 import org.slf4j.Logger;
@@ -152,7 +150,6 @@ public class LoginController implements LoginControllerInterface {
         if (token != null) {
             jwtTokenBlacklistService.blacklistToken(token, jwtTokenUtil.getExpirationDateFromToken(token));
         }
-//        session.removeAttribute("TOKEN");
         session.removeAttribute("USERNAME");
     }
 

@@ -1,5 +1,6 @@
 package com.demo.folder.controller;
 
+import com.demo.folder.entity.dto.request.UserCredentials;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -24,9 +24,6 @@ class LoginControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder; // Make sure this is correctly wired for your test context
-
     private MockHttpSession session;
 
     private ObjectMapper objectMapper;
@@ -36,7 +33,6 @@ class LoginControllerTest {
         this.session = new MockHttpSession();
         this.objectMapper = new ObjectMapper();
 
-        // Admin login
         MvcResult adminResult = mockMvc.perform(post("/api/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("username", "admin")
@@ -45,42 +41,8 @@ class LoginControllerTest {
                 .andExpect(content().string("Welcome admin"))
                 .andReturn();
 
-        // Predefined password
-        String plainTextPassword = "known_plain_password"; // Use a known password for tests
-
-        // Registration
-        String registrationJson = String.format("""
-        {
-            "firstName": "John",
-            "lastName": "Doe",
-            "dateOfBirth": "1990-01-01",
-            "address": "123 Main Street",
-            "password": "%s"
-        }
-        """, plainTextPassword);
-
-        MvcResult registrationResult = mockMvc.perform(post("/api/trainees")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(registrationJson))
-                .andExpect(status().isCreated())
-                .andReturn();
-
-        String registrationResponse = registrationResult.getResponse().getContentAsString();
-        JsonNode jsonNode = objectMapper.readTree(registrationResponse);
-        String username = jsonNode.get("username").asText();
-
-        // User login with known plain password
-        MvcResult loginResult = mockMvc.perform(post("/api/login")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .param("username", username)
-                        .param("password", plainTextPassword))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Login successful"))
-                .andReturn();
-
-        session = (MockHttpSession) loginResult.getRequest().getSession(false);
+        session = (MockHttpSession) adminResult.getRequest().getSession(false);
     }
-
     @Test
     public void testGetAllTrainingTypes() throws Exception {
         String trainingTypeJson = "{ \"trainingTypeName\": \"Yoga\" }";
@@ -126,4 +88,41 @@ class LoginControllerTest {
                 .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath(
                         "$.id", is(id.intValue())));
     }
+
+    @Test
+    public void testLogout() throws Exception {
+        UserCredentials credentials = new UserCredentials();
+        credentials.setUsername("admin");
+        credentials.setPassword("admin");
+
+        String entityJson = new ObjectMapper().writeValueAsString(credentials);
+
+        mockMvc.perform(post("/api/logout")
+                        .session(session)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(entityJson))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Logout successful"));
+    }
+
+    @Test
+    public void testUnsuccessfulLoginAttemptsBlockUser() throws Exception {
+        for (int i = 0; i < 3; i++) {
+            mockMvc.perform(post("/api/login")
+                            .session(session)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .param("username", "admin")
+                            .param("password", "wrongpassword"))
+                    .andExpect(status().isUnauthorized())
+                    .andExpect(content().string("Invalid credentials"));
+        }
+        mockMvc.perform(post("/api/login")
+                        .session(session)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("username", "admin")
+                        .param("password", "wrongpassword"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().string("User is blocked due to multiple failed login attempts."));
+    }
+
 }

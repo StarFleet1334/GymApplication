@@ -32,7 +32,6 @@ public class CustomAuthenticationProvider implements org.springframework.securit
     private String adminPassword;
 
 
-
     @Autowired
     public CustomAuthenticationProvider(UserDetailsService userDetailsService, JwtTokenUtil jwtTokenUtil, JwtTokenBlacklistService jwtTokenBlacklistService) {
         this.userDetailsService = userDetailsService;
