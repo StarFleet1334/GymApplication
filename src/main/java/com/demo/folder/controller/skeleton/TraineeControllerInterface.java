@@ -1,20 +1,24 @@
 package com.demo.folder.controller.skeleton;
 
-import com.demo.folder.entity.dto.request.*;
+import com.demo.folder.entity.dto.request.AllTraineeRequestDTO;
+import com.demo.folder.entity.dto.request.CreateTraineeRequestDTO;
+import com.demo.folder.entity.dto.request.UpdateTraineeProfileRequestDTO;
+import com.demo.folder.entity.dto.request.UpdateTraineeTrainersRequestDTO;
 import com.demo.folder.utils.StatusAction;
 import com.demo.folder.utils.TraineeAction;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.*;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-
-import java.time.LocalDate;
-import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Tag(name = "Trainee Controller", description = "Operations related to trainees")
 @RequestMapping(value = "api/trainees", produces = {"application/json"})

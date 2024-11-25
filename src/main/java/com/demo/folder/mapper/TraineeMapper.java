@@ -1,14 +1,13 @@
 package com.demo.folder.mapper;
 
+import com.demo.folder.entity.base.Trainee;
 import com.demo.folder.entity.base.User;
+import com.demo.folder.entity.dto.request.CreateTraineeRequestDTO;
+import com.demo.folder.entity.dto.response.TraineeResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
-
-import com.demo.folder.entity.base.Trainee;
-import com.demo.folder.entity.dto.request.CreateTraineeRequestDTO;
-import com.demo.folder.entity.dto.response.TraineeResponse;
 
 @Mapper
 public interface TraineeMapper {

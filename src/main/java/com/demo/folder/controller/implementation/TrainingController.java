@@ -7,13 +7,14 @@ import com.demo.folder.error.exception.EntityNotFoundException;
 import com.demo.folder.service.TrainingService;
 import com.demo.folder.utils.EntityUtil;
 import jakarta.validation.Valid;
-import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 public class TrainingController implements TrainingControllerInterface {

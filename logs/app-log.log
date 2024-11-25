@@ -1,0 +1,204 @@
+2024-11-25 13:10:11 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-25 13:10:11 [restartedMain] INFO  com.demo.folder.App - Starting App using Java 17.0.12 with PID 4716 (C:\Users\latar\IdeaProjects\GymProject\build\classes\java\main started by latar in C:\Users\latar\IdeaProjects\GymProject)
+2024-11-25 13:10:11 [restartedMain] INFO  com.demo.folder.App - The following 1 profile is active: "local"
+2024-11-25 13:10:11 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-25 13:10:11 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-25 13:10:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-25 13:10:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
+2024-11-25 13:10:12 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-11-25 13:10:12 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:10:12 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-25 13:10:12 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-11-25 13:10:13 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-25 13:10:13 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1491 ms
+2024-11-25 13:10:13 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-11-25 13:10:13 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-11-25 13:10:13 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-11-25 13:10:13 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-11-25 13:10:13 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:localdb'
+2024-11-25 13:10:13 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-25 13:10:13 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-11-25 13:10:13 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-25 13:10:13 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:10:13 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-25 13:10:13 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:10:13 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:10:14 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:10:14 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-25 13:10:14 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:10:14 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:10:14 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:10:14 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-25 13:10:15 [restartedMain] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-11-25 13:10:15 [restartedMain] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-11-25 13:10:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3203f2ee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4943b015, org.springframework.security.web.context.SecurityContextHolderFilter@6c03bbda, org.springframework.security.web.header.HeaderWriterFilter@7cb26284, org.springframework.security.web.authentication.logout.LogoutFilter@6f10fafb, com.demo.folder.utils.BlockUserFilter@7104272b, org.springframework.web.filter.CorsFilter@6a150ea, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5545cfd4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2775e3d5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eff7dfe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26303877, org.springframework.security.web.session.SessionManagementFilter@4c71c49e, org.springframework.security.web.access.ExceptionTranslationFilter@4d63b2be, org.springframework.security.web.access.intercept.AuthorizationFilter@202f204e]
+2024-11-25 13:10:16 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-11-25 13:10:16 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-11-25 13:10:16 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:10:16 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-25 13:10:16 [restartedMain] INFO  com.demo.folder.App - Started App in 5.158 seconds (process running for 5.864)
+2024-11-25 13:10:16 [RMI TCP Connection(1)-192.168.1.200] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-25 13:10:16 [RMI TCP Connection(1)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-25 13:10:16 [RMI TCP Connection(1)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-11-25 13:10:53 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainee_credentials.txt
+2024-11-25 13:10:53 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainer_credentials.txt
+2024-11-25 13:10:53 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-25 13:19:30 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-25 13:19:30 [restartedMain] INFO  com.demo.folder.App - Starting App using Java 17.0.12 with PID 4892 (C:\Users\latar\IdeaProjects\GymProject\build\classes\java\main started by latar in C:\Users\latar\IdeaProjects\GymProject)
+2024-11-25 13:19:30 [restartedMain] INFO  com.demo.folder.App - The following 1 profile is active: "local"
+2024-11-25 13:19:30 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-25 13:19:30 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-25 13:19:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-25 13:19:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2024-11-25 13:19:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-11-25 13:19:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:19:31 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-25 13:19:31 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-11-25 13:19:31 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-25 13:19:31 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1230 ms
+2024-11-25 13:19:31 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-11-25 13:19:31 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-11-25 13:19:31 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-11-25 13:19:31 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-11-25 13:19:31 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:localdb'
+2024-11-25 13:19:31 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-25 13:19:31 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-11-25 13:19:31 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-25 13:19:31 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:19:31 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-25 13:19:31 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:19:32 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:19:32 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:19:32 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-25 13:19:32 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:19:32 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:19:32 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:19:32 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-25 13:19:33 [restartedMain] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-11-25 13:19:33 [restartedMain] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-11-25 13:19:33 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e74fcce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d405c41, org.springframework.security.web.context.SecurityContextHolderFilter@a2f0976, org.springframework.security.web.header.HeaderWriterFilter@63ddc59b, org.springframework.security.web.authentication.logout.LogoutFilter@115c9e61, com.demo.folder.utils.BlockUserFilter@2ab5de44, org.springframework.web.filter.CorsFilter@114529dc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@40167a23, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52638f98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3beed4eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41791aa9, org.springframework.security.web.session.SessionManagementFilter@1ea8bcef, org.springframework.security.web.access.ExceptionTranslationFilter@1302cb09, org.springframework.security.web.access.intercept.AuthorizationFilter@129bee7f]
+2024-11-25 13:19:34 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-11-25 13:19:34 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-11-25 13:19:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:19:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-25 13:19:34 [restartedMain] INFO  com.demo.folder.App - Started App in 4.263 seconds (process running for 4.833)
+2024-11-25 13:19:34 [RMI TCP Connection(4)-192.168.1.200] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-25 13:19:34 [RMI TCP Connection(4)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-25 13:19:34 [RMI TCP Connection(4)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: cc789cf7-4e26-4f10-969a-43d6e04da5b5
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: cc789cf7-4e26-4f10-969a-43d6e04da5b5 | Incoming request: GET /swagger-ui.html
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: cc789cf7-4e26-4f10-969a-43d6e04da5b5 | Response status: 302
+2024-11-25 13:19:40 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: cc789cf7-4e26-4f10-969a-43d6e04da5b5 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 4cb9678f-6a2c-4548-86c2-1d11b1a984c4
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 4cb9678f-6a2c-4548-86c2-1d11b1a984c4 | Incoming request: GET /swagger-ui/index.html
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 4cb9678f-6a2c-4548-86c2-1d11b1a984c4 | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 4cb9678f-6a2c-4548-86c2-1d11b1a984c4 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 0fa1c729-5391-4840-9a6e-7c97a6594e55
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 68e20675-59c6-4e86-a3f4-d91b26043713
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: f1d552b2-3029-4cb7-a7bb-ffabdd369d7a
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 922456a0-532b-4df4-9ac2-207ff4408146
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: c1c0ad30-32d2-4100-bbb0-7666c5a1a860
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 922456a0-532b-4df4-9ac2-207ff4408146 | Incoming request: GET /swagger-ui/swagger-ui-bundle.js
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 0fa1c729-5391-4840-9a6e-7c97a6594e55 | Incoming request: GET /swagger-ui/swagger-ui-standalone-preset.js
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: f1d552b2-3029-4cb7-a7bb-ffabdd369d7a | Incoming request: GET /swagger-ui/swagger-initializer.js
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 68e20675-59c6-4e86-a3f4-d91b26043713 | Incoming request: GET /swagger-ui/index.css
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: c1c0ad30-32d2-4100-bbb0-7666c5a1a860 | Incoming request: GET /swagger-ui/swagger-ui.css
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 68e20675-59c6-4e86-a3f4-d91b26043713 | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 68e20675-59c6-4e86-a3f4-d91b26043713 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: c1c0ad30-32d2-4100-bbb0-7666c5a1a860 | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: c1c0ad30-32d2-4100-bbb0-7666c5a1a860 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 0fa1c729-5391-4840-9a6e-7c97a6594e55 | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 0fa1c729-5391-4840-9a6e-7c97a6594e55 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 922456a0-532b-4df4-9ac2-207ff4408146 | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 922456a0-532b-4df4-9ac2-207ff4408146 completed.
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: f1d552b2-3029-4cb7-a7bb-ffabdd369d7a | Response status: 200
+2024-11-25 13:19:40 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: f1d552b2-3029-4cb7-a7bb-ffabdd369d7a completed.
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 920568ad-f711-4ce8-bd7a-e2ac886ca104
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 920568ad-f711-4ce8-bd7a-e2ac886ca104 | Incoming request: GET /v3/api-docs/swagger-config
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 75cee7e4-ab45-427a-9d7e-0eb099492e65
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 75cee7e4-ab45-427a-9d7e-0eb099492e65 | Incoming request: GET /swagger-ui/favicon-32x32.png
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 75cee7e4-ab45-427a-9d7e-0eb099492e65 | Response status: 200
+2024-11-25 13:19:41 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 75cee7e4-ab45-427a-9d7e-0eb099492e65 completed.
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 920568ad-f711-4ce8-bd7a-e2ac886ca104 | Response status: 200
+2024-11-25 13:19:41 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 920568ad-f711-4ce8-bd7a-e2ac886ca104 completed.
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: a092386b-1ead-4682-bdb4-e36a2369b45f
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: a092386b-1ead-4682-bdb4-e36a2369b45f | Incoming request: GET /v3/api-docs
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 232 ms
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: a092386b-1ead-4682-bdb4-e36a2369b45f | Response status: 200
+2024-11-25 13:19:41 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: a092386b-1ead-4682-bdb4-e36a2369b45f completed.
+2024-11-25 13:19:46 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:46 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:19:51 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:19:51 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:20:01 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-11-25 13:20:01 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 2
+2024-11-25 13:20:01 [http-nio-8080-exec-4] INFO  c.d.f.service.LoginAttemptService - No lock timestamp found for user admin, not currently blocked.
+2024-11-25 13:20:01 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-11-25 13:20:08 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainee_credentials.txt
+2024-11-25 13:20:08 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainer_credentials.txt
+2024-11-25 13:20:08 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-25 13:21:03 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-25 13:21:03 [restartedMain] INFO  com.demo.folder.App - Starting App using Java 17.0.12 with PID 17824 (C:\Users\latar\IdeaProjects\GymProject\build\classes\java\main started by latar in C:\Users\latar\IdeaProjects\GymProject)
+2024-11-25 13:21:03 [restartedMain] INFO  com.demo.folder.App - The following 1 profile is active: "local"
+2024-11-25 13:21:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-25 13:21:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-25 13:21:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-25 13:21:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
+2024-11-25 13:21:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-11-25 13:21:04 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:21:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-25 13:21:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-11-25 13:21:04 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-25 13:21:04 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1245 ms
+2024-11-25 13:21:04 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-11-25 13:21:04 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-11-25 13:21:04 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-11-25 13:21:04 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-11-25 13:21:04 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:localdb'
+2024-11-25 13:21:05 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-25 13:21:05 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-11-25 13:21:05 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-25 13:21:05 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:21:05 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-25 13:21:05 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:21:05 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:21:05 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:21:06 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-25 13:21:06 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-25 13:21:06 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-25 13:21:06 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-25 13:21:06 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-25 13:21:06 [restartedMain] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-11-25 13:21:06 [restartedMain] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-11-25 13:21:07 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f521215, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78f58cc8, org.springframework.security.web.context.SecurityContextHolderFilter@5c6770e4, org.springframework.security.web.header.HeaderWriterFilter@2a4c1d21, org.springframework.security.web.authentication.logout.LogoutFilter@648ba08c, com.demo.folder.utils.BlockUserFilter@55378a7e, org.springframework.web.filter.CorsFilter@5c870a37, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@47a80106, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@205c7b32, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ad580e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bc4f15e, org.springframework.security.web.session.SessionManagementFilter@cabbef0, org.springframework.security.web.access.ExceptionTranslationFilter@1af9a414, org.springframework.security.web.access.intercept.AuthorizationFilter@77867d55]
+2024-11-25 13:21:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-11-25 13:21:07 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-11-25 13:21:07 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-25 13:21:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-25 13:21:07 [restartedMain] INFO  com.demo.folder.App - Started App in 4.3 seconds (process running for 4.822)
+2024-11-25 13:21:07 [RMI TCP Connection(3)-192.168.1.200] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-25 13:21:07 [RMI TCP Connection(3)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-25 13:21:07 [RMI TCP Connection(3)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-11-25 13:21:08 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainee_credentials.txt
+2024-11-25 13:21:08 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainer_credentials.txt
+2024-11-25 13:21:08 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

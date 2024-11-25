@@ -2,8 +2,9 @@ package com.demo.folder.health.prome;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
-import java.util.concurrent.Callable;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.Callable;
 
 
 @Component

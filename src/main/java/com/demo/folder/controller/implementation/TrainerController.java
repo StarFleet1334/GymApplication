@@ -14,12 +14,6 @@ import com.demo.folder.service.TrainerService;
 import com.demo.folder.utils.EntityUtil;
 import com.demo.folder.utils.StatusAction;
 import jakarta.validation.Valid;
-
-import java.net.URI;
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -30,6 +24,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 public class TrainerController implements TrainerControllerInterface {

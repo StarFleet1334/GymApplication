@@ -2,9 +2,12 @@ package com.demo.folder.controller.implementation;
 
 import com.demo.folder.controller.skeleton.TraineeControllerInterface;
 import com.demo.folder.entity.base.Trainee;
-import com.demo.folder.entity.dto.request.*;
-import com.demo.folder.entity.dto.response.TraineeResponseProfileDTO;
+import com.demo.folder.entity.dto.request.AllTraineeRequestDTO;
+import com.demo.folder.entity.dto.request.CreateTraineeRequestDTO;
+import com.demo.folder.entity.dto.request.UpdateTraineeProfileRequestDTO;
+import com.demo.folder.entity.dto.request.UpdateTraineeTrainersRequestDTO;
 import com.demo.folder.entity.dto.response.TraineeResponse;
+import com.demo.folder.entity.dto.response.TraineeResponseProfileDTO;
 import com.demo.folder.entity.dto.response.UpdateTraineeTrainersResponseDTO;
 import com.demo.folder.error.exception.EntityNotFoundException;
 import com.demo.folder.health.prome.CustomMetrics;
@@ -15,13 +18,6 @@ import com.demo.folder.utils.EntityUtil;
 import com.demo.folder.utils.StatusAction;
 import com.demo.folder.utils.TraineeAction;
 import jakarta.validation.Valid;
-
-import java.net.URI;
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -32,6 +28,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 
 @RestController

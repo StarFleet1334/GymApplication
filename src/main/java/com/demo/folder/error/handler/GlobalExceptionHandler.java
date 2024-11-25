@@ -3,9 +3,6 @@ package com.demo.folder.error.handler;
 import com.demo.folder.error.exception.AuthenticationException;
 import com.demo.folder.error.exception.EntityNotFoundException;
 import com.demo.folder.error.exception.ErrorResponse;
-import java.util.Collection;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import com.demo.folder.mapper.RequiredRolesMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -19,6 +16,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.WebRequest;
+
+import java.util.Collection;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

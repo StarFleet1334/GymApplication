@@ -1,0 +1,45 @@
+2024-11-20 02:05:09 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-20 02:05:09 [restartedMain] INFO  com.demo.folder.App - Starting App using Java 17.0.12 with PID 15788 (C:\Users\latar\IdeaProjects\GymProject\build\classes\java\main started by latar in C:\Users\latar\IdeaProjects\GymProject)
+2024-11-20 02:05:09 [restartedMain] INFO  com.demo.folder.App - The following 1 profile is active: "local"
+2024-11-20 02:05:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-20 02:05:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-20 02:05:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-20 02:05:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2024-11-20 02:05:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-11-20 02:05:11 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-20 02:05:11 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-20 02:05:11 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-11-20 02:05:11 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-20 02:05:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1395 ms
+2024-11-20 02:05:11 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-11-20 02:05:11 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-11-20 02:05:11 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-11-20 02:05:11 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-11-20 02:05:11 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:localdb'
+2024-11-20 02:05:11 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-20 02:05:11 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-11-20 02:05:11 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-20 02:05:11 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-20 02:05:12 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-20 02:05:12 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-20 02:05:12 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-20 02:05:12 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-20 02:05:12 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-20 02:05:13 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-11-20 02:05:13 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-11-20 02:05:13 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-20 02:05:13 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-20 02:05:13 [restartedMain] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-11-20 02:05:13 [restartedMain] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-11-20 02:05:14 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a363954, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a7e5fae, org.springframework.security.web.context.SecurityContextHolderFilter@60b8d468, org.springframework.security.web.header.HeaderWriterFilter@700b5548, org.springframework.security.web.authentication.logout.LogoutFilter@37929729, com.demo.folder.utils.BlockUserFilter@9df001b, org.springframework.web.filter.CorsFilter@4b83bfe, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@71e63dc9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76c384c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1894be88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37084791, org.springframework.security.web.session.SessionManagementFilter@28d4ecf8, org.springframework.security.web.access.ExceptionTranslationFilter@5c8377b8, org.springframework.security.web.access.intercept.AuthorizationFilter@5bc6b1f1]
+2024-11-20 02:05:14 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-11-20 02:05:14 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-11-20 02:05:14 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-20 02:05:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-20 02:05:14 [restartedMain] INFO  com.demo.folder.App - Started App in 4.946 seconds (process running for 5.603)
+2024-11-20 02:05:14 [RMI TCP Connection(2)-192.168.1.200] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-20 02:05:14 [RMI TCP Connection(2)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-20 02:05:14 [RMI TCP Connection(2)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-11-20 02:05:16 [SpringApplicationShutdownHook] INFO  c.d.f.cleanup.CredentialFileCleanup - Deleted file: C:\Users\latar\IdeaProjects\GymProject\trainee_credentials.txt
+2024-11-20 02:05:16 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymProject\trainer_credentials.txt
+2024-11-20 02:05:16 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

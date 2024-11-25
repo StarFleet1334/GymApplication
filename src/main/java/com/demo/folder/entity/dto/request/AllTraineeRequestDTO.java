@@ -1,6 +1,7 @@
 package com.demo.folder.entity.dto.request;
 
 import com.demo.folder.entity.dto.response.TraineeTrainingResponseDTO;
+
 import java.time.LocalDate;
 import java.util.List;
 
