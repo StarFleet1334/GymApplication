@@ -1,18 +1,34 @@
 package com.demo.folder.controller;
 
+import com.demo.folder.controller.implementation.TrainingController;
+import com.demo.folder.entity.base.TrainingSession;
+import com.demo.folder.entity.dto.request.TrainingSessionDTO;
+import com.demo.folder.error.exception.EntityNotFoundException;
+import com.demo.folder.error.exception.ErrorResponse;
+import com.demo.folder.service.TrainingSessionService;
+import com.demo.folder.utils.EntityUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,6 +41,12 @@ class TrainingControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Mock
+    private TrainingSessionService trainingSessionService;
+
+    @InjectMocks
+    private TrainingController trainingController;
 
     private String traineeUsername;
     private String traineePassword;
@@ -171,5 +193,41 @@ class TrainingControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].trainingName", is("Morning Yoga Session")));
+    }
+
+    @Test
+    public void testCreateTrainingSessionSuccess() {
+        TrainingSessionDTO trainingSessionDTO = new TrainingSessionDTO();
+
+        TrainingSession trainingSession = new TrainingSession();
+        trainingSession.setId(1L);
+
+        when(trainingSessionService.createTrainingSession(any(TrainingSessionDTO.class))).thenReturn(trainingSession);
+
+        ResponseEntity<Object> response = trainingController.createTrainingSession(trainingSessionDTO);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertTrue(response.getHeaders().getLocation().toString().contains("/1"));
+        assertEquals("Training session created successfully", response.getBody());
+    }
+
+    @Test
+    public void testDeleteTrainingSessionSuccess() {
+        Long id = 1L;
+
+        ResponseEntity<Void> response = trainingController.deleteTrainingSession(id);
+
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
+
+    @Test
+    public void testDeleteTrainingSessionEntityNotFound() {
+        Long id = 1L;
+        doThrow(new EntityNotFoundException("TrainingSession not found"))
+                .when(trainingSessionService).deleteTrainingSession(id);
+
+        ResponseEntity<Void> response = trainingController.deleteTrainingSession(id);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 }
