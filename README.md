@@ -7,7 +7,7 @@ Users are able to log their activities and view them both as trainers and as tra
 # How to run
 * run Main class App.clas
 * Access Swagger on url: http://localhost:8080/swagger-ui.html
-
+* Related project or Second MicroService that is connected to this: https://github.com/StarFleet1334/MicroServicesGEureka
 
 
 ## Documentation
