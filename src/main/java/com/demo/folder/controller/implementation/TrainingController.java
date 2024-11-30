@@ -86,28 +86,6 @@ public class TrainingController implements TrainingControllerInterface {
         }
     }
 
-//    @Override
-//    public ResponseEntity<Object> trainingSession(TrainingSessionDTO trainingSessionDTO, ActionType actionType) {
-//        try {
-//            TrainingSession trainingSession = trainingSessionService.processTraining(trainingSessionDTO, actionType);
-//            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-//                    .build()
-//                    .toUri();
-//
-//            if (actionType == ActionType.ADD) {
-//                return ResponseEntity.created(location).body("Training created successfully");
-//            } else if (actionType == ActionType.DELETE) {
-//                return ResponseEntity.noContent().build();
-//            } else {
-//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid action type");
-//            }
-//        } catch (EntityNotFoundException e) {
-//            return EntityUtil.getObjectResponseNotFoundEntity(e);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
-//        }
-//
-//    }
 
     @Override
     public ResponseEntity<Object> getAllTrainingSession() {

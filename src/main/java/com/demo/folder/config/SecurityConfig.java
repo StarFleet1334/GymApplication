@@ -64,7 +64,8 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/actuator/health"),
                                 new AntPathRequestMatcher("/actuator/info"),
                                 new AntPathRequestMatcher("/actuator/prometheus"),
-                                new AntPathRequestMatcher("/h2-console/**")
+                                new AntPathRequestMatcher("/h2-console/**"),
+                                new AntPathRequestMatcher("/actuator/circuitbreakers/**")
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
