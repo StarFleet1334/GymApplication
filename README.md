@@ -4,6 +4,9 @@
 application enables gym trainees and trainers to register their profile, giving trainees the option to select one or more trainers.
 Users are able to log their activities and view them both as trainers and as trainees.Application provides the functionality to modify profile information and activate or deactivate profiles and etc.
 
+# How to run
+* run Main class App.clas
+* Access Swagger on url: http://localhost:8080/swagger-ui.html
 
 
 
