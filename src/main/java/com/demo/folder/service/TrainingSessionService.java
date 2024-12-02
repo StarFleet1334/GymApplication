@@ -128,6 +128,9 @@ public class TrainingSessionService {
         dto.setTrainingDuration(10);
         dto.setIsActive(false);
         secondaryMicroserviceClient.addTraining(dto);
+        // Since this is a fallback creation of training session, in memory it is not saved
+        // same principle applies to delete until some task appears that may contain such thing
+        // potentially cascading could be applied also
         return new TrainingSession();
     }
 
