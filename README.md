@@ -5,10 +5,10 @@ application enables gym trainees and trainers to register their profile, giving 
 Users are able to log their activities and view them both as trainers and as trainees.Application provides the functionality to modify profile information and activate or deactivate profiles and etc.
 
 # How to run
-* run Main class App.clas
+* First should be run Second MicroService repository's discovery service -> workload service -> Gym Service
 * Access Swagger on url: http://localhost:8080/swagger-ui.html
 * Related project or Second MicroService that is connected to this: https://github.com/StarFleet1334/MicroServicesGEureka
-
+* 
 
 ## Documentation
 
