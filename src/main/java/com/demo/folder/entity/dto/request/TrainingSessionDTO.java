@@ -21,6 +21,8 @@ public class TrainingSessionDTO {
     private LocalDate trainingDate;
     @NotNull(message = "Training duration is required")
     private Number trainingDuration;
+    @NotNull(message = "Training action is required")
+    private String action;
 
 
     public @NotBlank(message = "Trainer userName is required") String getTrainerUserName() {
@@ -75,6 +77,22 @@ public class TrainingSessionDTO {
     public void setTrainingDuration(
             @NotNull(message = "Training duration is required") Number trainingDuration) {
         this.trainingDuration = trainingDuration;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }
 

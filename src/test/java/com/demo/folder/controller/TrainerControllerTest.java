@@ -33,7 +33,7 @@ class TrainerControllerTest {
     private ObjectMapper objectMapper;
 
     @BeforeEach
-    public void setup() throws Exception {
+    void setup() throws Exception {
         this.session = new MockHttpSession();
         this.objectMapper = new ObjectMapper();
 
@@ -92,7 +92,7 @@ class TrainerControllerTest {
     }
 
     @Test
-    public void testRegisterTrainer() throws Exception {
+    void testRegisterTrainer() throws Exception {
         String trainingTypeJson = "{ \"trainingTypeName\": \"Pilates\" }";
 
         MvcResult trainingTypeResult = mockMvc.perform(post("/api/training-type")
@@ -120,7 +120,7 @@ class TrainerControllerTest {
     }
 
     @Test
-    public void testGetAllTrainers() throws Exception {
+    void testGetAllTrainers() throws Exception {
         mockMvc.perform(get("/api/trainers")
                         .session(session))
                 .andExpect(status().isOk())
@@ -130,7 +130,7 @@ class TrainerControllerTest {
     }
 
     @Test
-    public void testActivationOfTrainer() throws Exception {
+    void testActivationOfTrainer() throws Exception {
         mockMvc.perform(patch("/api/trainers/{username}/{action}", trainerUsername, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
@@ -148,7 +148,7 @@ class TrainerControllerTest {
     }
 
     @Test
-    public void testDeActivationOfTrainer() throws Exception {
+    void testDeActivationOfTrainer() throws Exception {
         mockMvc.perform(patch("/api/trainers/{username}/{action}", trainerUsername, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
@@ -162,7 +162,7 @@ class TrainerControllerTest {
 
 
     @Test
-    public void testRetrieveTrainerByUserName() throws Exception {
+    void testRetrieveTrainerByUserName() throws Exception {
         mockMvc.perform(get("/api/trainers/{username}", trainerUsername)
                         .session(session))
                 .andExpect(status().isOk())

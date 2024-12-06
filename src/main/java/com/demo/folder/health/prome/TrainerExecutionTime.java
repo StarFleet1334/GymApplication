@@ -26,8 +26,13 @@ public class TrainerExecutionTime {
         Timer.Sample sample = Timer.start(meterRegistry);
         try {
             return callable.call();
+        }  catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Method execution was interrupted.", e);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Illegal arguments provided to method.", e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("An unexpected error occurred during method execution.", e);
         } finally {
             sample.stop(methodExecutionTimer);
         }

@@ -31,7 +31,7 @@ class LoginControllerTest {
     private ObjectMapper objectMapper;
 
     @BeforeEach
-    public void setup() throws Exception {
+    void setup() throws Exception {
         this.session = new MockHttpSession();
         this.objectMapper = new ObjectMapper();
 
@@ -46,7 +46,7 @@ class LoginControllerTest {
         session = (MockHttpSession) adminResult.getRequest().getSession(false);
     }
     @Test
-    public void testGetAllTrainingTypes() throws Exception {
+    void testGetAllTrainingTypes() throws Exception {
         String trainingTypeJson = "{ \"trainingTypeName\": \"Yoga\" }";
 
         mockMvc.perform(post("/api/training-type")
@@ -64,7 +64,7 @@ class LoginControllerTest {
     }
 
     @Test
-    public void testGetTrainingTypeById() throws Exception {
+    void testGetTrainingTypeById() throws Exception {
         String trainingTypeJson = "{ \"trainingTypeName\": \"Yoga\" }";
 
         mockMvc.perform(post("/api/training-type")
@@ -92,7 +92,7 @@ class LoginControllerTest {
     }
 
     @Test
-    public void testLogout() throws Exception {
+    void testLogout() throws Exception {
         UserCredentials credentials = new UserCredentials();
         credentials.setUsername("admin");
         credentials.setPassword("admin");
@@ -108,7 +108,7 @@ class LoginControllerTest {
     }
 
     @Test
-    public void testUnsuccessfulLoginAttemptsBlockUser() throws Exception {
+    void testUnsuccessfulLoginAttemptsBlockUser() throws Exception {
         for (int i = 0; i < 3; i++) {
             mockMvc.perform(post("/api/login")
                             .session(session)

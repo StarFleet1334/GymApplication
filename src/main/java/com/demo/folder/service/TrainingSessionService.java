@@ -5,6 +5,7 @@ import com.demo.folder.entity.base.Trainer;
 import com.demo.folder.entity.base.TrainingSession;
 import com.demo.folder.entity.dto.request.TrainingSessionDTO;
 import com.demo.folder.repository.TrainingSessionRepository;
+import com.demo.folder.transaction.TransactionIdHolder;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -45,6 +46,7 @@ public class TrainingSessionService {
     @CircuitBreaker(name = "trainingSessionService", fallbackMethod = "fallbackCreateTrainingSession")
     public TrainingSession createTrainingSession(TrainingSessionDTO dto) {
         LOGGER.info("Creating new training session");
+        String transactionId = TransactionIdHolder.getTransactionId();
 
         Trainer trainer = trainerService.findTrainerByUsername(dto.getTrainerUserName());
         if (trainer == null) {
@@ -72,7 +74,8 @@ public class TrainingSessionService {
         trainingSessionRepository.save(trainingSession);
         LOGGER.info("Saved new training session with ID: {}", trainingSession.getId());
 
-        secondaryMicroserviceClient.addTraining(dto);
+        dto.setAction("add");
+        secondaryMicroserviceClient.handleTraining(dto,transactionId);
         LOGGER.info("Notified Secondary Microservice about training addition.");
         return trainingSession;
     }
@@ -85,6 +88,7 @@ public class TrainingSessionService {
     @CircuitBreaker(name = "trainingSessionService", fallbackMethod = "fallbackDeleteTrainingSession")
     public void deleteTrainingSession(Long id) {
         LOGGER.info("Deleting training session with ID: {}", id);
+        String transactionId = TransactionIdHolder.getTransactionId();
 
         Optional<TrainingSession> sessionOptional = trainingSessionRepository.findById(id);
         if (sessionOptional.isEmpty()) {
@@ -98,7 +102,8 @@ public class TrainingSessionService {
 
         TrainingSessionDTO dto = modelMapper.map(trainingSession, TrainingSessionDTO.class);
 
-        secondaryMicroserviceClient.deleteTraining(dto);
+        dto.setAction("delete");
+        secondaryMicroserviceClient.handleTraining(dto,transactionId);
         LOGGER.info("Notified Secondary Microservice about training deletion.");
 
     }
@@ -120,6 +125,7 @@ public class TrainingSessionService {
      * @return A default TrainingSession instance.
      */
     public TrainingSession fallbackCreateTrainingSession(TrainingSessionDTO dto, Throwable throwable) {
+        String transactionId = TransactionIdHolder.getTransactionId();
         LOGGER.error("Fallback method called due to: {}", throwable.getMessage());
         dto.setTrainerFirstName("Fallback");
         dto.setTrainerLastName("Trainer");
@@ -127,7 +133,8 @@ public class TrainingSessionService {
         dto.setTrainingDate(LocalDate.now());
         dto.setTrainingDuration(10);
         dto.setIsActive(false);
-        secondaryMicroserviceClient.addTraining(dto);
+        dto.setAction("add");
+        secondaryMicroserviceClient.handleTraining(dto,transactionId);
         // Since this is a fallback creation of training session, in memory it is not saved
         // same principle applies to delete until some task appears that may contain such thing
         // potentially cascading could be applied also

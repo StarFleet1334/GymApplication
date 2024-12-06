@@ -31,7 +31,7 @@ class TraineeControllerTest {
     private ObjectMapper objectMapper;
 
     @BeforeEach
-    public void setup() throws Exception {
+    void setup() throws Exception {
         this.session = new MockHttpSession();
         this.objectMapper = new ObjectMapper();
 
@@ -78,7 +78,7 @@ class TraineeControllerTest {
     }
 
     @Test
-    public void testGetAllTrainee() throws Exception {
+    void testGetAllTrainee() throws Exception {
         mockMvc.perform(get("/api/trainees")
                         .session(session))
                 .andExpect(status().isOk())
@@ -87,7 +87,7 @@ class TraineeControllerTest {
     }
 
     @Test
-    public void testActivationOfTrainee() throws Exception {
+    void testActivationOfTrainee() throws Exception {
         mockMvc.perform(patch("/api/trainees/{username}/{action}", this.username, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
@@ -106,7 +106,7 @@ class TraineeControllerTest {
     }
 
     @Test
-    public void testDeActivationOfTrainee() throws Exception {
+    void testDeActivationOfTrainee() throws Exception {
         mockMvc.perform(patch("/api/trainees/{username}/{action}", this.username, "DEACTIVATE")
                         .session(session))
                 .andExpect(status().isOk())
@@ -120,14 +120,14 @@ class TraineeControllerTest {
     }
 
     @Test
-    public void testDeletionOfTrainee() throws Exception {
+    void testDeletionOfTrainee() throws Exception {
         mockMvc.perform(delete("/api/trainees/{username}", this.username)
                         .session(session))
                 .andExpect(status().isNoContent());
     }
 
     @Test
-    public void testUpdateTrainee() throws Exception {
+    void testUpdateTrainee() throws Exception {
         MvcResult loginResult = mockMvc.perform(post("/api/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("username", "admin")
@@ -160,7 +160,7 @@ class TraineeControllerTest {
     }
 
     @Test
-    public void testRetrieveTraineeByUserName() throws Exception {
+    void testRetrieveTraineeByUserName() throws Exception {
         mockMvc.perform(get("/api/trainees/{username}/profile", this.username)
                         .session(session))
                 .andExpect(status().isOk())

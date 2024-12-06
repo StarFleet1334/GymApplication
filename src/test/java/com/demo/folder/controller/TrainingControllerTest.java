@@ -56,7 +56,7 @@ class TrainingControllerTest {
     private ObjectMapper objectMapper;
 
     @BeforeEach
-    public void setup() throws Exception {
+    void setup() throws Exception {
         this.session = new MockHttpSession();
         this.objectMapper = new ObjectMapper();
 
@@ -146,7 +146,7 @@ class TrainingControllerTest {
     }
 
     @Test
-    public void testRegisterTraining() throws Exception {
+    void testRegisterTraining() throws Exception {
 
         String trainingDateStr = "2024/10/14";
 
@@ -169,7 +169,7 @@ class TrainingControllerTest {
     }
 
     @Test
-    public void testGetTrainings() throws Exception {
+    void testGetTrainings() throws Exception {
         String trainingDateStr = "2024/10/14";
 
         String trainingJson = """
@@ -196,7 +196,7 @@ class TrainingControllerTest {
     }
 
     @Test
-    public void testCreateTrainingSessionSuccess() {
+    void testCreateTrainingSessionSuccess() {
         TrainingSessionDTO trainingSessionDTO = new TrainingSessionDTO();
 
         TrainingSession trainingSession = new TrainingSession();
@@ -212,7 +212,7 @@ class TrainingControllerTest {
     }
 
     @Test
-    public void testDeleteTrainingSessionSuccess() {
+    void testDeleteTrainingSessionSuccess() {
         Long id = 1L;
 
         ResponseEntity<Void> response = trainingController.deleteTrainingSession(id);
@@ -221,7 +221,7 @@ class TrainingControllerTest {
     }
 
     @Test
-    public void testDeleteTrainingSessionEntityNotFound() {
+    void testDeleteTrainingSessionEntityNotFound() {
         Long id = 1L;
         doThrow(new EntityNotFoundException("TrainingSession not found"))
                 .when(trainingSessionService).deleteTrainingSession(id);

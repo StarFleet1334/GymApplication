@@ -69,8 +69,6 @@ public class TrainingController implements TrainingControllerInterface {
             return ResponseEntity.created(location).body("Training session created successfully");
         } catch (EntityNotFoundException e) {
             return EntityUtil.getObjectResponseNotFoundEntity(e);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error occurred");
         }
     }
 
@@ -81,8 +79,6 @@ public class TrainingController implements TrainingControllerInterface {
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 

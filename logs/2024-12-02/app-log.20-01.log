@@ -1,0 +1,522 @@
+2024-12-02 19:52:23 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.demo.folder.controller.CircuitBreakerTest]: CircuitBreakerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-12-02 19:52:23 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.demo.folder.App for test class com.demo.folder.controller.CircuitBreakerTest
+2024-12-02 19:52:23 [Test worker] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+2024-12-02 19:52:23 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-12-02 19:52:23 [Test worker] INFO  c.d.f.controller.CircuitBreakerTest - Starting CircuitBreakerTest using Java 17.0.12 with PID 23184 (started by latar in C:\Users\latar\IdeaProjects\GymApplication)
+2024-12-02 19:52:23 [Test worker] INFO  c.d.f.controller.CircuitBreakerTest - The following 1 profile is active: "local"
+2024-12-02 19:52:25 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02 19:52:25 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 171 ms. Found 6 JPA repository interfaces.
+2024-12-02 19:52:25 [Test worker] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=703c5538-ad06-3175-ae96-dbcdf821c618
+2024-12-02 19:52:26 [Test worker] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.demo.folder.client.SecondaryMicroserviceClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-12-02 19:52:26 [Test worker] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-12-02 19:52:26 [Test worker] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-12-02 19:52:26 [Test worker] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-12-02 19:52:26 [Test worker] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-12-02 19:52:26 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02 19:52:26 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-12-02 19:52:26 [Test worker] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-12-02 19:52:26 [Test worker] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:27 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02 19:52:27 [Test worker] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-12-02 19:52:27 [Test worker] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:28 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-02 19:52:28 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02 19:52:28 [Test worker] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-12-02 19:52:28 [Test worker] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:28 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-02 19:52:29 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-02 19:52:29 [Test worker] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-12-02 19:52:30 [Test worker] INFO  o.s.c.o.FeignClientFactoryBean - For 'workload' URL not provided. Will try picking an instance via load-balancing.
+2024-12-02 19:52:31 [Test worker] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-12-02 19:52:31 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5cfed4ee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f086b45, org.springframework.security.web.context.SecurityContextHolderFilter@1c17d98c, org.springframework.security.web.header.HeaderWriterFilter@66d17af8, org.springframework.security.web.authentication.logout.LogoutFilter@77f4742b, com.demo.folder.utils.BlockUserFilter@167c0e2e, org.springframework.web.filter.CorsFilter@37d9db26, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6390f89c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@472bcf53, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d70bdec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c60c2dd, org.springframework.security.web.session.SessionManagementFilter@69f4143, org.springframework.security.web.access.ExceptionTranslationFilter@52647605, org.springframework.security.web.access.intercept.AuthorizationFilter@1cc73bb1]
+2024-12-02 19:52:33 [Test worker] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-12-02 19:52:33 [Test worker] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-12-02 19:52:33 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2024-12-02 19:52:33 [Test worker] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-12-02 19:52:34 [Test worker] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-12-02 19:52:34 [Test worker] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1733154754459 with initial instances count: 1
+2024-12-02 19:52:34 [Test worker] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application GYMCCRM with eureka with status UP
+2024-12-02 19:52:34 [Test worker] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1733154754471, current=UP, previous=STARTING]
+2024-12-02 19:52:34 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM: registering service...
+2024-12-02 19:52:34 [Test worker] INFO  c.d.f.controller.CircuitBreakerTest - Started CircuitBreakerTest in 10.86 seconds (process running for 12.043)
+2024-12-02 19:52:34 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - registration status: 204
+2024-12-02 19:52:35 [Test worker] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: nonexistentUser
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Trainer with username nonexistentUser not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username nonexistentUser not found.
+2024-12-02 19:52:35 [Test worker] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: FallbackTrainer
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: FallbackTrainer
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: FallbackTrainer
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: FallbackTrainer
+2024-12-02 19:52:35 [Test worker] INFO  c.demo.folder.service.TrainerService - Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username FallbackTrainer not found.
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [Test worker] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: CircuitBreaker 'trainingSessionService' is OPEN and does not permit further calls
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application GYMCCRM with eureka with status DOWN
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1733154755917, current=DOWN, previous=UP]
+2024-12-02 19:52:35 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM: registering service...
+2024-12-02 19:52:35 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - registration status: 204
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymApplication\trainee_credentials.txt
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymApplication\trainer_credentials.txt
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02 19:52:35 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-12-02 19:52:38 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-12-02 19:52:38 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - deregister  status: 200
+2024-12-02 19:52:38 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-12-02 19:52:47 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-12-02 19:52:47 [restartedMain] INFO  com.demo.folder.App - Starting App using Java 17.0.12 with PID 4456 (C:\Users\latar\IdeaProjects\GymApplication\build\classes\java\main started by latar in C:\Users\latar\IdeaProjects\GymApplication)
+2024-12-02 19:52:47 [restartedMain] INFO  com.demo.folder.App - The following 1 profile is active: "local"
+2024-12-02 19:52:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-02 19:52:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-02 19:52:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02 19:52:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 6 JPA repository interfaces.
+2024-12-02 19:52:48 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=c9f05878-b197-321b-b862-379c7d71e33a
+2024-12-02 19:52:48 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.demo.folder.client.SecondaryMicroserviceClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-12-02 19:52:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-12-02 19:52:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-02 19:52:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-02 19:52:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-12-02 19:52:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-02 19:52:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1983 ms
+2024-12-02 19:52:49 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Local Configuration is active
+2024-12-02 19:52:49 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - Setting up DataSource for LOCAL environment
+2024-12-02 19:52:49 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB URL: jdbc:h2:mem:localdb;DB_CLOSE_DELAY=-1
+2024-12-02 19:52:49 [restartedMain] INFO  c.d.f.config.profiles.LocalConfig - DB Username: sa
+2024-12-02 19:52:49 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:localdb'
+2024-12-02 19:52:49 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02 19:52:49 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.0.Final
+2024-12-02 19:52:49 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-12-02 19:52:50 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:50 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02 19:52:50 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-12-02 19:52:50 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:50 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-02 19:52:50 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02 19:52:51 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-12-02 19:52:51 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 19:52:51 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-02 19:52:51 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-02 19:52:51 [restartedMain] INFO  c.demo.folder.service.TraineeService - TraineeService initialized.
+2024-12-02 19:52:52 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-12-02 19:52:52 [restartedMain] INFO  o.s.c.o.FeignClientFactoryBean - For 'workload' URL not provided. Will try picking an instance via load-balancing.
+2024-12-02 19:52:52 [restartedMain] INFO  c.d.f.health.EnvProfileServiceCheck - Currently active profile - [local]
+2024-12-02 19:52:52 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@388e7de5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2049da41, org.springframework.security.web.context.SecurityContextHolderFilter@24fa76, org.springframework.security.web.header.HeaderWriterFilter@19695441, org.springframework.security.web.authentication.logout.LogoutFilter@1e36c7ed, com.demo.folder.utils.BlockUserFilter@1f4c4cec, org.springframework.web.filter.CorsFilter@1ed7bbd2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@429f24f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c54bd37, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d5da43d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21747008, org.springframework.security.web.session.SessionManagementFilter@7333c150, org.springframework.security.web.access.ExceptionTranslationFilter@7a84daf6, org.springframework.security.web.access.intercept.AuthorizationFilter@73849b7c]
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-12-02 19:52:54 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-12-02 19:52:54 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-12-02 19:52:54 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1733154774501 with initial instances count: 1
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application GYMCCRM with eureka with status UP
+2024-12-02 19:52:54 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1733154774511, current=UP, previous=STARTING]
+2024-12-02 19:52:54 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-02 19:52:54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM: registering service...
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-12-02 19:52:54 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2024-12-02 19:52:54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - registration status: 204
+2024-12-02 19:52:54 [restartedMain] INFO  com.demo.folder.App - Started App in 7.482 seconds (process running for 8.221)
+2024-12-02 19:52:54 [RMI TCP Connection(1)-192.168.1.200] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-02 19:52:54 [RMI TCP Connection(1)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-12-02 19:52:54 [RMI TCP Connection(1)-192.168.1.200] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 71b31711-f22c-45c8-9661-a071329453ea
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 71b31711-f22c-45c8-9661-a071329453ea | Incoming request: GET /swagger-ui.html
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 71b31711-f22c-45c8-9661-a071329453ea | Response status: 302
+2024-12-02 19:53:06 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 71b31711-f22c-45c8-9661-a071329453ea completed.
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 3c0d5229-d65f-49e8-b08f-f830da4c0b2b
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 3c0d5229-d65f-49e8-b08f-f830da4c0b2b | Incoming request: GET /swagger-ui/index.html
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 3c0d5229-d65f-49e8-b08f-f830da4c0b2b | Response status: 200
+2024-12-02 19:53:06 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 3c0d5229-d65f-49e8-b08f-f830da4c0b2b completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 31035ca2-9e3c-4d5d-8a7c-14e33e99ab7f
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 31035ca2-9e3c-4d5d-8a7c-14e33e99ab7f | Incoming request: GET /swagger-ui/swagger-ui.css
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 83c05682-70b2-43e9-8066-f0edaff59e21
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 80e1017d-6e78-43b7-9027-17de2992ac7e
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 83c05682-70b2-43e9-8066-f0edaff59e21 | Incoming request: GET /swagger-ui/swagger-ui-standalone-preset.js
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: dd4c8e1b-1cd8-4aef-8703-e1ebcffcd9a3
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 80e1017d-6e78-43b7-9027-17de2992ac7e | Incoming request: GET /swagger-ui/swagger-ui-bundle.js
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: e21e7aaa-07e4-4f22-b052-0498985d0545
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: dd4c8e1b-1cd8-4aef-8703-e1ebcffcd9a3 | Incoming request: GET /swagger-ui/index.css
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: e21e7aaa-07e4-4f22-b052-0498985d0545 | Incoming request: GET /swagger-ui/swagger-initializer.js
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: dd4c8e1b-1cd8-4aef-8703-e1ebcffcd9a3 | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: dd4c8e1b-1cd8-4aef-8703-e1ebcffcd9a3 completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 31035ca2-9e3c-4d5d-8a7c-14e33e99ab7f | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 31035ca2-9e3c-4d5d-8a7c-14e33e99ab7f completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 83c05682-70b2-43e9-8066-f0edaff59e21 | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: e21e7aaa-07e4-4f22-b052-0498985d0545 | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 83c05682-70b2-43e9-8066-f0edaff59e21 completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: e21e7aaa-07e4-4f22-b052-0498985d0545 completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 80e1017d-6e78-43b7-9027-17de2992ac7e | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 80e1017d-6e78-43b7-9027-17de2992ac7e completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: b987f6cc-b1cd-480f-8936-b17633e8b426
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 5e1a6f9a-6c81-4f3a-8f95-e90801ff57cd
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: b987f6cc-b1cd-480f-8936-b17633e8b426 | Incoming request: GET /v3/api-docs/swagger-config
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 5e1a6f9a-6c81-4f3a-8f95-e90801ff57cd | Incoming request: GET /swagger-ui/favicon-32x32.png
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 5e1a6f9a-6c81-4f3a-8f95-e90801ff57cd | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 5e1a6f9a-6c81-4f3a-8f95-e90801ff57cd completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: b987f6cc-b1cd-480f-8936-b17633e8b426 | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: b987f6cc-b1cd-480f-8936-b17633e8b426 completed.
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 145cd2af-3992-4812-a6df-5ad63c9a9baf
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 145cd2af-3992-4812-a6df-5ad63c9a9baf | Incoming request: GET /v3/api-docs
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 222 ms
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 145cd2af-3992-4812-a6df-5ad63c9a9baf | Response status: 200
+2024-12-02 19:53:07 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 145cd2af-3992-4812-a6df-5ad63c9a9baf completed.
+2024-12-02 19:53:13 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:13 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 2
+2024-12-02 19:53:13 [http-nio-8080-exec-1] INFO  c.d.f.service.LoginAttemptService - No lock timestamp found for user admin, not currently blocked.
+2024-12-02 19:53:13 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:38 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:38 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:38 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: a4e6a70c-1bf8-466b-8ed5-10e6c5de8b7a
+2024-12-02 19:53:38 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: a4e6a70c-1bf8-466b-8ed5-10e6c5de8b7a completed.
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 068e5580-c045-4e2b-89a6-8443cbbc5ae8
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 068e5580-c045-4e2b-89a6-8443cbbc5ae8 | Incoming request: POST /api/training-type
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.d.f.service.TrainingTypeService - Creating new training type: string
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 068e5580-c045-4e2b-89a6-8443cbbc5ae8 | Response status: 201
+2024-12-02 19:53:50 [http-nio-8080-exec-10] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 068e5580-c045-4e2b-89a6-8443cbbc5ae8 completed.
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 6075079b-2ad3-4a47-9a74-187372943a46
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 6075079b-2ad3-4a47-9a74-187372943a46 | Incoming request: POST /api/trainers
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.demo.folder.service.TrainerService - Creating new Trainer with first name: Ilia
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.d.f.service.LoginAttemptService - Cleared login attempts and locks for user Ilia.Lataria-eff837d4
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 6075079b-2ad3-4a47-9a74-187372943a46 | Response status: 201
+2024-12-02 19:54:05 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 6075079b-2ad3-4a47-9a74-187372943a46 completed.
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 882fa93e-eb62-4b99-8aed-32e30c53ed03
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 882fa93e-eb62-4b99-8aed-32e30c53ed03 | Incoming request: POST /api/trainings/session
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: Ilia.Lataria-eff837d4
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.service.TrainingSessionService - Saved new training session with ID: 1
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.service.TrainingSessionService - Notified Secondary Microservice about training addition.
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: 882fa93e-eb62-4b99-8aed-32e30c53ed03 | Response status: 201
+2024-12-02 19:54:26 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 882fa93e-eb62-4b99-8aed-32e30c53ed03 completed.
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: e9c192c9-52c2-451c-ae52-fb98a76aaf04
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: e9c192c9-52c2-451c-ae52-fb98a76aaf04 | Incoming request: DELETE /api/trainings/session/1
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.service.TrainingSessionService - Deleting training session with ID: 1
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.service.TrainingSessionService - Deleted training session with ID: 1
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.service.TrainingSessionService - Notified Secondary Microservice about training deletion.
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: e9c192c9-52c2-451c-ae52-fb98a76aaf04 | Response status: 204
+2024-12-02 19:54:46 [http-nio-8080-exec-4] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: e9c192c9-52c2-451c-ae52-fb98a76aaf04 completed.
+2024-12-02 19:55:23 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:55:23 [http-nio-8080-exec-2] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:55:23 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 52a6e450-880b-459b-9ae4-7b665edf4243
+2024-12-02 19:55:23 [http-nio-8080-exec-2] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 52a6e450-880b-459b-9ae4-7b665edf4243 completed.
+2024-12-02 19:55:43 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:55:43 [http-nio-8080-exec-7] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:55:43 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: d4201152-e248-4479-90a6-1ec9b2e1eb10
+2024-12-02 19:55:43 [http-nio-8080-exec-7] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: d4201152-e248-4479-90a6-1ec9b2e1eb10 completed.
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: dbeca7c2-9b4d-4838-8eda-73b370bc4270
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: dbeca7c2-9b4d-4838-8eda-73b370bc4270 | Incoming request: POST /api/trainings/session
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: Ilia.Lataria-eff837d4s
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.demo.folder.service.TrainerService - Trainer with username Ilia.Lataria-eff837d4s not found.
+2024-12-02 19:55:46 [http-nio-8080-exec-9] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username Ilia.Lataria-eff837d4s not found.
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: dbeca7c2-9b4d-4838-8eda-73b370bc4270 | Response status: 201
+2024-12-02 19:55:46 [http-nio-8080-exec-9] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: dbeca7c2-9b4d-4838-8eda-73b370bc4270 completed.
+2024-12-02 19:55:52 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:55:52 [http-nio-8080-exec-6] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:55:52 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 0cd35dd4-3921-45df-8d63-5b4728e65b11
+2024-12-02 19:55:52 [http-nio-8080-exec-6] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 0cd35dd4-3921-45df-8d63-5b4728e65b11 completed.
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: ea723f8f-ef23-4a9b-b163-ca512d07b747
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: ea723f8f-ef23-4a9b-b163-ca512d07b747 | Incoming request: GET /api/trainings/session
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: ea723f8f-ef23-4a9b-b163-ca512d07b747 | Response status: 200
+2024-12-02 19:56:02 [http-nio-8080-exec-8] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: ea723f8f-ef23-4a9b-b163-ca512d07b747 completed.
+2024-12-02 19:56:19 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:56:19 [http-nio-8080-exec-3] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:56:19 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 280f6b5a-3de6-41ba-a950-4d7ce934918a
+2024-12-02 19:56:19 [http-nio-8080-exec-3] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 280f6b5a-3de6-41ba-a950-4d7ce934918a completed.
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: c224966c-3e07-4e47-af1e-5ba4452fe0e2
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: c224966c-3e07-4e47-af1e-5ba4452fe0e2 | Incoming request: POST /api/trainings/session
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.d.f.service.TrainingSessionService - Creating new training session
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.demo.folder.service.TrainerService - Finding Trainer by username: Ilia.Lataria-eff837d4sss
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.demo.folder.service.TrainerService - Trainer with username Ilia.Lataria-eff837d4sss not found.
+2024-12-02 19:56:33 [http-nio-8080-exec-1] ERROR c.d.f.service.TrainingSessionService - Fallback method called due to: Trainer with username Ilia.Lataria-eff837d4sss not found.
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.d.f.t.RequestLoggingInterceptor - Transaction ID: c224966c-3e07-4e47-af1e-5ba4452fe0e2 | Response status: 201
+2024-12-02 19:56:33 [http-nio-8080-exec-1] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: c224966c-3e07-4e47-af1e-5ba4452fe0e2 completed.
+2024-12-02 19:56:37 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 1
+2024-12-02 19:56:37 [http-nio-8080-exec-5] INFO  c.demo.folder.utils.BlockUserFilter - doFilterInterval 4
+2024-12-02 19:56:37 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Starting transaction with ID: 6b7363d3-4ddb-469f-8700-10ca334ee0bf
+2024-12-02 19:56:37 [http-nio-8080-exec-5] INFO  c.d.f.transaction.TransactionFilter - Transaction with ID: 6b7363d3-4ddb-469f-8700-10ca334ee0bf completed.
+2024-12-02 19:57:54 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application GYMCCRM with eureka with status DOWN
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1733155293237, current=DOWN, previous=UP]
+2024-12-02 20:01:33 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM: registering service...
+2024-12-02 20:01:33 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - registration status: 204
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] WARN  c.d.f.cleanup.CredentialFileCleanup - File not found, cannot delete: C:\Users\latar\IdeaProjects\GymApplication\trainee_credentials.txt
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] INFO  c.d.f.cleanup.CredentialFileCleanup - Deleted file: C:\Users\latar\IdeaProjects\GymApplication\trainer_credentials.txt
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02 20:01:33 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:191)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:184)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1182)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1107)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1076)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
+	... 39 more
+
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] WARN  c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:191)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:184)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1182)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1107)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1076)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
+	... 40 more
+
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] WARN  c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/GYMCCRM/IDoctor:gymcCRM": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] ERROR c.netflix.discovery.DiscoveryClient - DiscoveryClient_GYMCCRM/IDoctor:gymcCRM - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:191)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:184)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1182)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1107)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1076)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-12-02 20:01:36 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

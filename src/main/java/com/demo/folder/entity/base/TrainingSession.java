@@ -27,6 +27,10 @@ public class TrainingSession {
     @Column(nullable = false)
     private Integer trainingDuration;
 
+    @Column(nullable = false)
+    private String action;
+
+
 
     public Long getId() {
         return id;
@@ -84,6 +88,22 @@ public class TrainingSession {
         this.trainingDuration = trainingDuration;
     }
 
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
     @Override
     public String toString() {
         return "TrainingSession{" +
@@ -94,6 +114,7 @@ public class TrainingSession {
                 ", isActive=" + isActive +
                 ", trainingDate=" + trainingDate +
                 ", trainingDuration=" + trainingDuration +
+                ", action='" + action + '\'' +
                 '}';
     }
 }

@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public interface SecondaryMicroserviceClient {
 
     @PostMapping("/trainings")
-    void addTraining(@RequestBody TrainingSessionDTO trainingSessionDTO);
+    void handleTraining(@RequestBody TrainingSessionDTO trainingSessionDTO,
+                        @RequestHeader("Transaction-ID") String transactionId);
 
-    @DeleteMapping("/trainings")
-    void deleteTraining(@RequestBody TrainingSessionDTO trainingSessionDTO);
 }
