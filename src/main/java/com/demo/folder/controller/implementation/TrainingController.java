@@ -59,14 +59,22 @@ public class TrainingController implements TrainingControllerInterface {
 
     @Override
     public ResponseEntity<Object> createTrainingSession(TrainingSessionDTO trainingSessionDTO) {
+        String action = trainingSessionDTO.getAction();
         try {
-            TrainingSession trainingSession = trainingSessionService.createTrainingSession(trainingSessionDTO);
-            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                    .path("/{id}")
-                    .buildAndExpand(trainingSession.getId())
-                    .toUri();
+            if ("add".equalsIgnoreCase(action)) {
+                TrainingSession trainingSession = trainingSessionService.createTrainingSession(trainingSessionDTO);
+                URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                        .path("/{id}")
+                        .buildAndExpand(trainingSession.getId())
+                        .toUri();
 
-            return ResponseEntity.created(location).body("Training session created successfully");
+                return ResponseEntity.created(location).body("Training session created successfully");
+            } else if ("delete".equalsIgnoreCase(action)) {
+                trainingSessionService.deleteTrainingSession(trainingSessionDTO);
+                return ResponseEntity.ok().body("Training session deleted successfully");
+            } else {
+                return ResponseEntity.badRequest().body("Invalid action. Allowed values are 'add' or 'delete'.");
+            }
         } catch (EntityNotFoundException e) {
             return EntityUtil.getObjectResponseNotFoundEntity(e);
         }
@@ -75,7 +83,7 @@ public class TrainingController implements TrainingControllerInterface {
     @Override
     public ResponseEntity<Void> deleteTrainingSession(Long id) {
         try {
-            trainingSessionService.deleteTrainingSession(id);
+            trainingSessionService.deleteTrainingSessionWithId(id);
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

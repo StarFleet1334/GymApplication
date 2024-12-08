@@ -8,7 +8,17 @@ Users are able to log their activities and view them both as trainers and as tra
 * First should be run Second MicroService repository's discovery service -> workload service -> Gym Service
 * Access Swagger on url: http://localhost:8080/swagger-ui.html
 * Related project or Second MicroService that is connected to this: https://github.com/StarFleet1334/MicroServicesGEureka
-* 
+* For ActiveMQ I use Docker and here are commands to run it:
+* docker pull quay.io/artemiscloud/activemq-artemis-broker:latest
+* docker run -it --rm -p 61616:61616 -p 8161:8161 quay.io/artemiscloud/activemq-artemis-broker:latest
+* and as user: artemis
+* and as password: simply-artemis
+
+
+# Access
+* In Swagger to start accessing endpoints first you should login as admin and credentials are following:
+* username: admin
+* password: admin
 
 ## Documentation
 

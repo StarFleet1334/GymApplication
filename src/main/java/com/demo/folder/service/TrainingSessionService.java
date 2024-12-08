@@ -91,7 +91,7 @@ public class TrainingSessionService {
      * @param id The ID of the training session to delete.
      */
     @CircuitBreaker(name = "trainingSessionService", fallbackMethod = "fallbackDeleteTrainingSession")
-    public void deleteTrainingSession(Long id) {
+    public void deleteTrainingSessionWithId(Long id) {
         LOGGER.info("Deleting training session with ID: {}", id);
         String transactionId = TransactionIdHolder.getTransactionId();
 
@@ -109,6 +109,42 @@ public class TrainingSessionService {
 
         dto.setAction("delete");
         jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, dto, message -> {
+            message.setStringProperty("TransactionID", transactionId);
+            return message;
+        });
+    }
+
+    public void deleteTrainingSession(TrainingSessionDTO dto) {
+        LOGGER.info("Attempting to delete training session for username: {}", dto.getTrainerUserName());
+        String transactionId = TransactionIdHolder.getTransactionId();
+        Integer duration = (Integer) dto.getTrainingDuration();
+
+        Optional<TrainingSession> optionalSession = trainingSessionRepository
+                .findByTrainerUserNameAndTrainerFirstNameAndTrainerLastNameAndTrainingDateAndTrainingDuration(
+                        dto.getTrainerUserName(),
+                        dto.getTrainerFirstName(),
+                        dto.getTrainerLastName(),
+                        dto.getTrainingDate(),
+                        duration
+                );
+
+        if (optionalSession.isEmpty()) {
+            throw new EntityNotFoundException("No matching training session found for the given details.");
+        }
+
+        TrainingSession sessionToDelete = optionalSession.get();
+
+        if (dto.getActive() != sessionToDelete.getIsActive()) {
+            throw new IllegalStateException("Active status does not match.");
+        }
+
+        trainingSessionRepository.delete(sessionToDelete);
+        LOGGER.info("Successfully deleted training session with ID: {}", sessionToDelete.getId());
+
+        TrainingSessionDTO deletedSessionDTO = modelMapper.map(sessionToDelete, TrainingSessionDTO.class);
+
+        deletedSessionDTO.setAction("delete");
+        jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, deletedSessionDTO, message -> {
             message.setStringProperty("TransactionID", transactionId);
             return message;
         });
@@ -138,7 +174,7 @@ public class TrainingSessionService {
         dto.setTrainerUserName("FallbackTrainer");
         dto.setTrainingDate(LocalDate.now());
         dto.setTrainingDuration(10);
-        dto.setIsActive(false);
+        dto.setActive(false);
         dto.setAction("add");
         jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, dto, message -> {
             message.setStringProperty("TransactionID", transactionId);

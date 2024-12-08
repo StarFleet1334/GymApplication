@@ -52,15 +52,6 @@ public class TrainingSessionDTO {
         this.trainerLastName = trainerLastName;
     }
 
-    public @NotNull(message = "isActive status is required") Boolean getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(
-            @NotNull(message = "isActive status is required") Boolean isActive) {
-        this.isActive = isActive;
-    }
-
     public @NotNull(message = "Training date is required") LocalDate getTrainingDate() {
         return trainingDate;
     }

@@ -224,7 +224,7 @@ class TrainingControllerTest {
     void testDeleteTrainingSessionEntityNotFound() {
         Long id = 1L;
         doThrow(new EntityNotFoundException("TrainingSession not found"))
-                .when(trainingSessionService).deleteTrainingSession(id);
+                .when(trainingSessionService).deleteTrainingSessionWithId(id);
 
         ResponseEntity<Void> response = trainingController.deleteTrainingSession(id);
 
