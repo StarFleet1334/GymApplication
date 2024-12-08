@@ -1,5 +1,6 @@
 package com.demo.folder.cleanup;
 
+import com.demo.folder.utils.FileConstants;
 import jakarta.annotation.PreDestroy;
 
 import java.io.IOException;
@@ -16,8 +17,8 @@ import java.nio.file.Paths;
 public class CredentialFileCleanup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CredentialFileCleanup.class);
-    private final Path traineeCredentialsPath = Paths.get("trainee_credentials.txt");
-    private final Path trainerCredentialsPath = Paths.get("trainer_credentials.txt");
+    private final Path traineeCredentialsPath = Paths.get(FileConstants.TRAINEE_CREDENTIALS);
+    private final Path trainerCredentialsPath = Paths.get(FileConstants.TRAINER_CREDENTIALS);
 
     @PreDestroy
     public void cleanUp() {

@@ -6,12 +6,14 @@ import com.demo.folder.entity.base.TrainingSession;
 import com.demo.folder.entity.dto.request.TrainingSessionDTO;
 import com.demo.folder.repository.TrainingSessionRepository;
 import com.demo.folder.transaction.TransactionIdHolder;
+import com.demo.folder.utils.ActiveMQConstants;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -33,7 +35,8 @@ public class TrainingSessionService {
     private ModelMapper modelMapper;
 
     @Autowired
-    private SecondaryMicroserviceClient secondaryMicroserviceClient;
+    private JmsTemplate jmsTemplate;
+
 
     public AtomicBoolean fallbackCalled = new AtomicBoolean(false);
 
@@ -75,8 +78,10 @@ public class TrainingSessionService {
         LOGGER.info("Saved new training session with ID: {}", trainingSession.getId());
 
         dto.setAction("add");
-        secondaryMicroserviceClient.handleTraining(dto,transactionId);
-        LOGGER.info("Notified Secondary Microservice about training addition.");
+        jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, dto, message -> {
+            message.setStringProperty("TransactionID", transactionId);
+            return message;
+        });
         return trainingSession;
     }
 
@@ -103,9 +108,10 @@ public class TrainingSessionService {
         TrainingSessionDTO dto = modelMapper.map(trainingSession, TrainingSessionDTO.class);
 
         dto.setAction("delete");
-        secondaryMicroserviceClient.handleTraining(dto,transactionId);
-        LOGGER.info("Notified Secondary Microservice about training deletion.");
-
+        jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, dto, message -> {
+            message.setStringProperty("TransactionID", transactionId);
+            return message;
+        });
     }
 
     /**
@@ -134,7 +140,11 @@ public class TrainingSessionService {
         dto.setTrainingDuration(10);
         dto.setIsActive(false);
         dto.setAction("add");
-        secondaryMicroserviceClient.handleTraining(dto,transactionId);
+        jmsTemplate.convertAndSend(ActiveMQConstants.TRAININGS_QUEUE, dto, message -> {
+            message.setStringProperty("TransactionID", transactionId);
+            return message;
+        });
+//        secondaryMicroserviceClient.handleTraining(dto,transactionId);
         // Since this is a fallback creation of training session, in memory it is not saved
         // same principle applies to delete until some task appears that may contain such thing
         // potentially cascading could be applied also
