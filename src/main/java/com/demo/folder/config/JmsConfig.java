@@ -1,5 +1,6 @@
 package com.demo.folder.config;
 
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
@@ -10,6 +11,11 @@ import org.springframework.jms.connection.CachingConnectionFactory;
 @EnableJms
 public class JmsConfig {
 
+    @Bean
+    public CachingConnectionFactory cachingConnectionFactory() {
+        ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        return new CachingConnectionFactory(activeMQConnectionFactory);
+    }
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(CachingConnectionFactory cachingConnectionFactory) {

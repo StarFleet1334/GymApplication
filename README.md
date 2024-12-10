@@ -5,17 +5,24 @@ application enables gym trainees and trainers to register their profile, giving 
 Users are able to log their activities and view them both as trainers and as trainees.Application provides the functionality to modify profile information and activate or deactivate profiles and etc.
 
 # How to run
-* First should be run Second MicroService repository's discovery service -> workload service -> Gym Service
+* First should be run Second MicroService repository's discovery service 
+* Second We must Database then ActiveMQ and then either this microservice or workload microservice
 * Access Swagger on url: http://localhost:8080/swagger-ui.html
 * Related project or Second MicroService that is connected to this: https://github.com/StarFleet1334/MicroServicesGEureka
-* For ActiveMQ I use Docker and here are commands to run it:
-* docker pull quay.io/artemiscloud/activemq-artemis-broker:latest
-* docker run -it --rm -p 61616:61616 -p 8161:8161 quay.io/artemiscloud/activemq-artemis-broker:latest
-* and as user: artemis
-* and as password: simply-artemis
 
+# Active MQ
+* docker pull rmohr/activemq:latest
+* docker run -it --rm -p 61616:61616 -p 8161:8161 rmohr/activemq:latest
+* If you want to access url: http://localhost:8161/
+* Type as user: admin
+* Type as password: admin
 
-# Access
+# Database
+* Database used: MariaDb
+* to start up run : 'docker-compose up' from source directory
+* to view actual data different GUI's can be used. In my case I use DBeaver 24.3.0
+
+# Swagger
 * In Swagger to start accessing endpoints first you should login as admin and credentials are following:
 * username: admin
 * password: admin
