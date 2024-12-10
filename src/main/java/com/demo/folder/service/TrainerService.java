@@ -59,6 +59,17 @@ public class TrainerService {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
+    public void create(TrainerRequestDTO trainerRequestDTO) {
+        validateTrainerName(trainerRequestDTO);
+        String plainTextPassword = Generator.generatePassword();
+        TrainingType trainingType = getTrainingType(trainerRequestDTO.getTrainingTypeId());
+        User user = createUser(trainerRequestDTO, plainTextPassword,passwordEncoder);
+        Trainer trainer = TrainerMapper.INSTANCE.toEntity(trainerRequestDTO);
+        trainer.setSpecialization(trainingType);
+        trainer.setUser(user);
+        trainerRepository.save(trainer);
+    }
+
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public TrainerResponseDTO createTrainer(TrainerRequestDTO trainerRequestDTO) {
