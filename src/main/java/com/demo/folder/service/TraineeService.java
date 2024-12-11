@@ -91,6 +91,17 @@ public class TraineeService {
         traineeRepository.save(trainee);
     }
 
+    public void create(CreateTraineeRequestDTO traineeRequestDTO) {
+        validateTraineeRequestDTO(traineeRequestDTO);
+        LOGGER.info("Creating new Trainee with first name: {}", traineeRequestDTO.getFirstName());
+        String plainTextPassword = generatePassword();
+        Trainee trainee = TraineeMapper.INSTANCE.toEntity(traineeRequestDTO);
+        User user = createUser(traineeRequestDTO, plainTextPassword);
+        trainee.setUser(user);
+        LOGGER.info("Creating new Trainee with username: {}", trainee.getUser().getUsername());
+        traineeRepository.save(trainee);
+    }
+
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public TraineeResponse createTrainee(CreateTraineeRequestDTO traineeRequestDTO) {
