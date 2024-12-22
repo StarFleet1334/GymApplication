@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
-
 public class TrainingRequestDTO {
 
     @NotBlank(message = "Trainee userName is required")
@@ -25,27 +24,8 @@ public class TrainingRequestDTO {
         return traineeUserName;
     }
 
-    public void setTraineeUserName(
-            @NotBlank(message = "Trainee userName is required") String traineeUserName) {
-        this.traineeUserName = traineeUserName;
-    }
-
     public @NotBlank(message = "Trainer userName is required") String getTrainerUserName() {
         return trainerUserName;
-    }
-
-    public void setTrainerUserName(
-            @NotBlank(message = "Trainer userName is required") String trainerUserName) {
-        this.trainerUserName = trainerUserName;
-    }
-
-    public @NotBlank(message = "Training name is required") String getTrainingName() {
-        return trainingName;
-    }
-
-    public void setTrainingName(
-            @NotBlank(message = "Training name is required") String trainingName) {
-        this.trainingName = trainingName;
     }
 
     public @NotNull(message = "Training date is required") LocalDate getTrainingDate() {
@@ -59,11 +39,6 @@ public class TrainingRequestDTO {
 
     public @NotNull(message = "Training duration is required") Number getDuration() {
         return duration;
-    }
-
-    public void setDuration(
-            @NotNull(message = "Training duration is required") Number duration) {
-        this.duration = duration;
     }
 
 

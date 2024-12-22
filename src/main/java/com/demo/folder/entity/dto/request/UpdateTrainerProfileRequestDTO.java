@@ -2,7 +2,9 @@ package com.demo.folder.entity.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 public class UpdateTrainerProfileRequestDTO {
 
     @NotBlank(message = "firstName is required")
@@ -32,14 +34,6 @@ public class UpdateTrainerProfileRequestDTO {
     public void setLastName(
             @NotBlank(message = "lastName is required") String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
     }
 
     @NotNull(message = "isActive is required")
