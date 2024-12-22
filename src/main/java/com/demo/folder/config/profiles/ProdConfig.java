@@ -15,10 +15,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class ProdConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProdConfig.class);
 
-    private static final String DRIVER_CLASS_NAME = "org.h2.Driver";
-    private static final String DATABASE_URL = "jdbc:h2:mem:proddb;DB_CLOSE_DELAY=-1";
-    private static final String DATABASE_USERNAME = "sa";
-    private static final String DATABASE_PASSWORD = "";
+    private static final String DRIVER_CLASS_NAME = "org.mariadb.jdbc.Driver";
+    private static final String DATABASE_URL = "jdbc:mariadb://localhost:3306/gym";
+    private static final String DATABASE_USERNAME = "iliko";
+    private static final String DATABASE_PASSWORD = "20022005";
 
     @PostConstruct
     public void postConstruct() {

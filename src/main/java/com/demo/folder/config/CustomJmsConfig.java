@@ -3,9 +3,8 @@ package com.demo.folder.config;
 import com.demo.folder.entity.dto.request.TrainingSessionDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.jms.JMSException;
-import jakarta.jms.Session;
-import jakarta.jms.TextMessage;
+import jakarta.jms.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
@@ -22,7 +21,7 @@ public class CustomJmsConfig {
     }
 
     @Bean
-    public JmsTemplate jmsTemplate(jakarta.jms.ConnectionFactory connectionFactory) {
+    public JmsTemplate jmsTemplate(@Qualifier("cachingConnectionFactory") ConnectionFactory connectionFactory) {
         JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
         jmsTemplate.setMessageConverter(customMessageConverter());
         return jmsTemplate;
@@ -32,7 +31,7 @@ public class CustomJmsConfig {
     public MessageConverter customMessageConverter() {
         return new MessageConverter() {
             @Override
-            public jakarta.jms.Message toMessage(Object object, Session session) throws JMSException, MessageConversionException {
+            public Message toMessage(Object object, Session session) throws JMSException, MessageConversionException {
                 if (object instanceof TrainingSessionDTO) {
                     try {
                         String json = objectMapper.writeValueAsString(object);
@@ -45,7 +44,7 @@ public class CustomJmsConfig {
             }
 
             @Override
-            public Object fromMessage(jakarta.jms.Message message) throws JMSException, MessageConversionException {
+            public Object fromMessage(Message message) throws JMSException, MessageConversionException {
                 if (message instanceof TextMessage) {
                     try {
                         String json = ((TextMessage) message).getText();
