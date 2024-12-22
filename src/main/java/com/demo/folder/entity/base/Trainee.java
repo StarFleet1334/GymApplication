@@ -2,14 +2,11 @@ package com.demo.folder.entity.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import java.time.LocalDate;
 import java.util.List;
 @Entity
-@Data
-@NoArgsConstructor
 @Table(name = "trainees")
 public class Trainee {
 
@@ -38,5 +35,45 @@ public class Trainee {
             inverseJoinColumns = @JoinColumn(name = "trainer_id")
     )
     private List<Trainer> trainers;
+
+
+    public Trainee() {
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public List<Training> getTrainings() {
+        return trainings;
+    }
+    public void setTrainings(List<Training> trainings) {
+        this.trainings = trainings;
+    }
+    public List<Trainer> getTrainers() {
+        return trainers;
+    }
+    public void setTrainers(List<Trainer> trainers) {
+        this.trainers = trainers;
+    }
 
 }

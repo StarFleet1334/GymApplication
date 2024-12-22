@@ -13,7 +13,7 @@ public class JmsConfig {
 
     @Bean
     public CachingConnectionFactory cachingConnectionFactory() {
-        ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory("tcp://localhost:62626");
         return new CachingConnectionFactory(activeMQConnectionFactory);
     }
 

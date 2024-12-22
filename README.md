@@ -12,15 +12,22 @@ Users are able to log their activities and view them both as trainers and as tra
 
 # Active MQ
 * docker pull rmohr/activemq:latest
-* docker run -it --rm -p 61616:61616 -p 8161:8161 rmohr/activemq:latest
+* docker run -it --rm -p 62626:61616 -p 8161:8161 rmohr/activemq:latest
+* Here in case if port is busy you can modify 6*6*6:61616
+* But then remember you have to modify also that number everywhere
 * If you want to access url: http://localhost:8161/
 * Type as user: admin
 * Type as password: admin
 
-# Database
+# Relation Database
 * Database used: MariaDb
 * to start up run : 'docker-compose up' from source directory
 * to view actual data different GUI's can be used. In my case I use DBeaver 24.3.0
+
+# Non-Relation Database - MongoDb
+* Just download from this url: https://www.mongodb.com/try/download/community-kubernetes-operator
+* and then run as indicated above and you should see your database created automatically
+* you can modify database name in workload-microservice
 
 # Swagger
 * In Swagger to start accessing endpoints first you should login as admin and credentials are following:

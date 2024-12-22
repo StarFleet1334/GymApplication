@@ -4,10 +4,9 @@ package com.demo.folder.entity.dto.request;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 
 import java.time.LocalDate;
-@Data
+
 public class TrainingSessionDTO {
     @NotBlank(message = "Trainer userName is required")
     private String trainerUserName;
@@ -71,6 +70,13 @@ public class TrainingSessionDTO {
         this.trainingDuration = trainingDuration;
     }
 
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
 
     public Boolean getActive() {
         return isActive;

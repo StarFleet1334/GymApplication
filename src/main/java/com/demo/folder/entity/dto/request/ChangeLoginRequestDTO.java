@@ -1,11 +1,7 @@
 package com.demo.folder.entity.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
 public class ChangeLoginRequestDTO extends LoginRequestDTO {
 
     @NotBlank(message = "New Password is required")
