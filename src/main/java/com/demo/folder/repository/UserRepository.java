@@ -11,15 +11,10 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query("FROM User u WHERE u.username = :username")
-    User findByUsername(@Param("username") String username);
-
     @Query("FROM User u LEFT JOIN FETCH u.trainee LEFT JOIN FETCH u.trainerS WHERE u.username = :username")
     User findByUsernameWithAssociations(@Param("username") String username);
 
     @Query("FROM User")
     List<User> findAll();
 
-    @Query("SELECT u.username FROM User u WHERE u.username LIKE :baseUsername%")
-    List<String> findUsernamesStartingWith(@Param("baseUsername") String baseUsername);
 }

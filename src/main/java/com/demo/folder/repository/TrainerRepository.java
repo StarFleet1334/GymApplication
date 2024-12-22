@@ -24,6 +24,4 @@ public interface TrainerRepository extends JpaRepository<Trainer, Long> {
         });
     }
 
-    @Query("FROM Trainer t WHERE t NOT IN :assignedTrainers")
-    List<Trainer> findUnassignedTrainers(@Param("assignedTrainers") List<Trainer> assignedTrainers);
 }
