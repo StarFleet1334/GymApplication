@@ -32,9 +32,9 @@ public class CustomJmsConfig {
         return new MessageConverter() {
             @Override
             public Message toMessage(Object object, Session session) throws JMSException, MessageConversionException {
-                if (object instanceof TrainingSessionDTO) {
+                if (object instanceof TrainingSessionDTO trainingSessionDTO) {
                     try {
-                        String json = objectMapper.writeValueAsString(object);
+                        String json = objectMapper.writeValueAsString(trainingSessionDTO);
                         return session.createTextMessage(json);
                     } catch (JsonProcessingException e) {
                         throw new MessageConversionException("Could not convert TrainingSessionDTO to JSON", e);
@@ -45,9 +45,9 @@ public class CustomJmsConfig {
 
             @Override
             public Object fromMessage(Message message) throws JMSException, MessageConversionException {
-                if (message instanceof TextMessage) {
+                if (message instanceof TextMessage textMessage) {
                     try {
-                        String json = ((TextMessage) message).getText();
+                        String json = textMessage.getText();
                         return objectMapper.readValue(json, TrainingSessionDTO.class);
                     } catch (JsonProcessingException e) {
                         throw new MessageConversionException("Could not convert JSON to TrainingSessionDTO", e);
