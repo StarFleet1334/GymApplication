@@ -7,11 +7,13 @@ import jakarta.jms.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MessageConversionException;
 import org.springframework.jms.support.converter.MessageConverter;
 
 @Configuration
+@Profile("integration")
 public class CustomJmsConfig {
 
     private final ObjectMapper objectMapper;

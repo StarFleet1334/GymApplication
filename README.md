@@ -10,6 +10,22 @@ Users are able to log their activities and view them both as trainers and as tra
 * Access Swagger on url: http://localhost:8080/swagger-ui.html
 * Related project or Second MicroService that is connected to this: https://github.com/StarFleet1334/MicroServicesGEureka
 
+
+# Run apps using Docker and compose
+* to run you can use command docker-compose up --build 
+* In case if you run with above command here it will run without activeMQ and MariaDB
+* you can also modify with other profile other than integration in applications.properties to disable integration and can be checked on actuator/health
+* To run with integration  you can run docker-compose --profile integration up --build
+* To run without integratio and stuff, you can comment those lines:
+* profiles: ["integration"] and run docker-compose up --build and 
+* uncomment this line: 
+* depends_on:
+*  - mariadb
+*  - activemq
+ 
+
+
+
 # Active MQ
 * docker pull rmohr/activemq:latest
 * docker run -it --rm -p 62626:61616 -p 8161:8161 rmohr/activemq:latest
@@ -21,7 +37,7 @@ Users are able to log their activities and view them both as trainers and as tra
 
 # Relation Database
 * Database used: MariaDb
-* to start up run : 'docker-compose up' from source directory
+  * to start up run : 'docker-compose up' from source directory
 * to view actual data different GUI's can be used. In my case I use DBeaver 24.3.0
 
 # Non-Relation Database - MongoDb

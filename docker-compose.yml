@@ -1,18 +1,54 @@
 version: '3.1'
 
+networks:
+  microserviceeu_gym-network:
+    external: true
+
 services:
   mariadb:
     image: mariadb
+    container_name: mariadb_service
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ilikoiliko
       MYSQL_DATABASE: gym
       MYSQL_USER: iliko
       MYSQL_PASSWORD: 20022005
+#    profiles: ["integration"]
     ports:
       - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
+    networks:
+      - microserviceeu_gym-network
+
+  activemq:
+    image: rmohr/activemq:latest
+    container_name: activemq_service
+#    profiles: ["integration"]
+    ports:
+      - "63636:61616"
+      - "8161:8161"
+    networks:
+      - microserviceeu_gym-network
+
+  gym-app:
+    build: .
+    container_name: gym_app
+    restart: always
+    depends_on:
+      - mariadb
+      - activemq
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mariadb:3306/gym
+      SPRING_DATASOURCE_USERNAME: iliko
+      SPRING_DATASOURCE_PASSWORD: 20022005
+      SPRING_ACTIVEMQ_BROKER-URL: tcp://activemq:61616
+    networks:
+      - microserviceeu_gym-network
+
 
 volumes:
   mariadb_data:
